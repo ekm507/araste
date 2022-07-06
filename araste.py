@@ -1,23 +1,27 @@
-from font3 import f1, korsi
+#!/usr/bin/python3
+from font6 import f1, korsi
 
 def copyboard(blockstr, cursor, board):
     block = [list(line) for line in blockstr.split('\n')]
 
     for i in range(len(block)):
         lsize = len(block[i])
+        ksize = len(block[korsi])
         for j in range(lsize):
-            board[i][cursor - lsize + j] = block[i][j];
+            # print(cursor - ksize)
+            board[i][cursor - ksize + j] = block[i][j]
+
 
     return board, len(block[korsi])
 
-after_n = list("رذزدژاءوؤ!؟?\n. ‌،:؛")
+after_n = list("رذزدژآاءوؤ!؟?\n. ‌،:؛")
 before_n = list(" ‌،؛:.؟!?\n")
 fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ')
 
 def render(text, boardw, boardh, empty_char = ' '):
     board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
     # text = '\n'.join(''.join(line) for line in board)
-    cursor = boardw
+    cursor = boardw - 10
     text = ' ' + text + ' '
     for i in range(1, len(text) - 1):
         z = text[i]
@@ -42,7 +46,7 @@ text = 'ببب پ بابا'
 
 from sys import argv
 text = argv[1]
-render(text, 100, 10, '.')
+render(text, 200, 18, ' ')
 # qa = f1['ا'].split('\n')
 # qb = f1['ب'].split('\n')
 # qr = f1['ر'].split('\n')
