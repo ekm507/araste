@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-# from font3 import f1, korsi
-
+import os
+ 
 # read from flf font file
 a = open('f1.flf')
 b = a.readline().split(' ')
 boardh = int(b[1])
 korsi = int(b[2])
+max_block_width = int(b[3])
 comment_lines = int(b[5])
 num_chars = int(b[8])
 for _ in range(comment_lines):
@@ -38,7 +39,7 @@ fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ'
 def render(text, boardw, boardh, empty_char = ' '):
     board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
     # text = '\n'.join(''.join(line) for line in board)
-    cursor = boardw - 10
+    cursor = boardw - max_block_width
     text = ' ' + text + ' '
     for i in range(1, len(text) - 1):
         z = text[i]
@@ -49,6 +50,14 @@ def render(text, boardw, boardh, empty_char = ' '):
             if text[i-1] not in after_n:
                 z = 'ـ' + z
         
+        if cursor < max_block_width:
+
+            for line in board:
+                print(''.join(line[cursor:]))
+
+            cursor = boardw - max_block_width
+            board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
+            
 
         board, lenc = copyboard(f1[z], cursor, board)
         # print(z, lenc)
@@ -63,7 +72,8 @@ text = 'ببب پ بابا'
 
 from sys import argv
 text = argv[1]
-render(text, 200, boardh, ' ')
+board_width = os.get_terminal_size().columns
+render(text, board_width, boardh, ' ')
 # qa = f1['ا'].split('\n')
 # qb = f1['ب'].split('\n')
 # qr = f1['ر'].split('\n')
