@@ -1,5 +1,22 @@
 #!/usr/bin/python3
-from font6 import f1, korsi
+# from font3 import f1, korsi
+
+# read from flf font file
+a = open('f1.flf')
+b = a.readline().split(' ')
+boardh = int(b[1])
+korsi = int(b[2])
+comment_lines = int(b[5])
+num_chars = int(b[8])
+for _ in range(comment_lines):
+    a.readline()
+
+f1 = dict()
+for i in range(num_chars):
+    c = a.readline()[:-1]
+    d = '\n'.join([a.readline()[:-2] for i in range(boardh)])[:-1]
+    f1[c] = d
+
 
 def copyboard(blockstr, cursor, board):
     block = [list(line) for line in blockstr.split('\n')]
