@@ -63,7 +63,7 @@ text = 'ببب پ بابا'
 
 from sys import argv
 text = argv[1]
-render(text, 200, 18, ' ')
+render(text, 200, boardh, ' ')
 # qa = f1['ا'].split('\n')
 # qb = f1['ب'].split('\n')
 # qr = f1['ر'].split('\n')
