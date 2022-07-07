@@ -58,10 +58,9 @@ def render(text, boardw, boardh, empty_char = ' '):
             cursor = boardw - max_block_width
             board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
             
-
-        board, lenc = copyboard(f1[z], cursor, board)
-        # print(z, lenc)
-        cursor -= lenc
+        if z in f1:
+            board, lenc = copyboard(f1[z], cursor, board)
+            cursor -= lenc
 
 
     for line in board:
