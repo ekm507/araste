@@ -49,8 +49,8 @@ def render(text, boardw, boardh, empty_char = ' '):
                     z = z + 'ـ'
             if text[i-1] not in after_n:
                 z = 'ـ' + z
-        
-        if cursor < max_block_width:
+
+        if cursor < max_block_width or text[i] in ['\n', '\r']:
 
             for line in board:
                 print(''.join(line[cursor:]))
