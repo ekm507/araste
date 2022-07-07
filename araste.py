@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import os
+from sys import argv
  
 # read from flf font file
 a = open('f1.flf')
@@ -12,6 +13,7 @@ num_chars = int(b[8])
 for _ in range(comment_lines):
     a.readline()
 
+# f1 is character to block
 f1 = dict()
 for i in range(num_chars):
     c = a.readline()[:-1]
@@ -19,6 +21,7 @@ for i in range(num_chars):
     f1[c] = d
 
 
+# copy a block into the board
 def copyboard(blockstr, cursor, board):
     block = [list(line) for line in blockstr.split('\n')]
 
@@ -32,16 +35,29 @@ def copyboard(blockstr, cursor, board):
 
     return board, len(block[korsi])
 
+# characters which need character to be separated if it is after them
 after_n = list("رذزدژآاءوؤ!؟?\n. ‌،:؛")
+# characters which need character to be separated if it is before them
 before_n = list(" ‌،؛:.؟!?\n")
+# list of characters in persian alphabet
 fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ' + '\u200d')
 
+# convert text into ascii art and print
 def render(text, boardw, boardh, empty_char = ' '):
+
+    # generate an empty board
     board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
-    # text = '\n'.join(''.join(line) for line in board)
+
+    # rtl cursor
     cursor = boardw - max_block_width
+
+    # add space to beginning and end of text to make it easier to handle
     text = ' ' + text + ' '
+
+    # read characters from text
     for i in range(1, len(text) - 1):
+
+        # find appropriate variation of character
         z = text[i]
         if text[i] in fa:
             if text[i+1] not in before_n:
@@ -50,31 +66,31 @@ def render(text, boardw, boardh, empty_char = ' '):
             if text[i-1] not in after_n:
                 z = 'ـ' + z
 
+        # check if you need a newline
+        # if cursor has reached the end of the board or if character is a newline character
         if cursor < max_block_width or text[i] in ['\n', '\r']:
 
+            # print the board
             for line in board:
                 print(''.join(line[cursor:]))
 
+            # reset the board and cursor
             cursor = boardw - max_block_width
             board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
-            
+        
+        # copy the block of the character into the board
         if z in f1:
             board, lenc = copyboard(f1[z], cursor, board)
             cursor -= lenc
 
 
+    # print the remaining of the board
     for line in board:
         print(''.join(line[cursor:]))
 
-text = 'ببب پ بابا'
-# text = 'ا'
 
-from sys import argv
 text = argv[1]
+
 board_width = os.get_terminal_size().columns
+
 render(text, board_width, boardh, ' ')
-# qa = f1['ا'].split('\n')
-# qb = f1['ب'].split('\n')
-# qr = f1['ر'].split('\n')
-# for i in range(len(qa)):
-#     print(qr[i], qb[i], qa[i], sep='')
