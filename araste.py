@@ -33,7 +33,7 @@ def copyboard(blockstr, cursor, board):
 
 after_n = list("رذزدژآاءوؤ!؟?\n. ‌،:؛")
 before_n = list(" ‌،؛:.؟!?\n")
-fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ')
+fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ' + '\u200d')
 
 def render(text, boardw, boardh, empty_char = ' '):
     board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
