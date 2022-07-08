@@ -4,8 +4,12 @@ from sys import argv
 from src.utils import message
 
 # read from flf font file
-fontFile = open('fonts/aira.flf')
-fontLine = fontFile.readline().split(' ')
+try:
+  fontFile = open('fonts/aira.flf')
+  fontLine = fontFile.readline().split(' ')
+except:
+  message("Error", "'fonts/aira.flf' not found")
+
 boardh = int(fontLine[1])
 korsi = int(fontLine[2])
 max_block_width = int(fontLine[3])
