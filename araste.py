@@ -4,11 +4,12 @@ from sys import argv
 from src.utils import message
 
 # read from flf font file
+font_filename = 'fonts/aipara.flf'
 try:
-  fontFile = open('fonts/aira.flf')
+  fontFile = open(font_filename)
   fontLine = fontFile.readline().split(' ')
 except:
-  message("Error", "'fonts/aira.flf' not found")
+  message("Error", f"{font_filename} not found")
 
 boardh = int(fontLine[1])
 korsi = int(fontLine[2])
