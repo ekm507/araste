@@ -88,14 +88,19 @@ def render(text, boardw, boardh, empty_char = ' '):
             board, lenc = copyboard(airaFont[readText], cursor, board)
             cursor -= lenc
 
-
     # print the remaining of the board
     for line in board:
         print(''.join(line[cursor:]))
 
 
-text = argv[1]
+try:
+  text = argv[1]
+except:
+  text = ""
 
 board_width = os.get_terminal_size().columns
 
-render(text, board_width, boardh, ' ')
+try:
+  render(text, board_width, boardh, ' ')
+except:
+  render("", board_width, boardh, ' ')
