@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import os
 from sys import argv
- 
+from src.utils import message
+
 # read from flf font file
 a = open('f1.flf')
 b = a.readline().split(' ')
