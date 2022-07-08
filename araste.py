@@ -7,15 +7,15 @@ from src.utils import message
 font_filename = 'fonts/aipara.flf'
 try:
   fontFile = open(font_filename)
-  fontLine = fontFile.readline().split(' ')
+  flf_headers = fontFile.readline().split(' ')
 except:
   message("Error", f"{font_filename} not found")
 
-boardh = int(fontLine[1])
-korsi = int(fontLine[2])
-max_block_width = int(fontLine[3])
-comment_lines = int(fontLine[5])
-num_chars = int(fontLine[8])
+boardh = int(flf_headers[1])
+korsi = int(flf_headers[2])
+max_block_width = int(flf_headers[3])
+comment_lines = int(flf_headers[5])
+num_chars = int(flf_headers[8])
 for _ in range(comment_lines):
     fontFile.readline()
 
