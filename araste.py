@@ -4,6 +4,7 @@ from sys import argv
 from src.utils import message
 
 # read from flf font file
+
 font_filename = 'fonts/aipara.flf'
 try:
   fontFile = open(font_filename)
