@@ -4,26 +4,28 @@ from sys import argv
 from src.utils import message
 
 # read from flf font file
-try:
-  fontFile = open('fonts/aira.flf')
-  fontLine = fontFile.readline().split(' ')
-except:
-  message("Error", "'fonts/aira.flf' not found")
 
-boardh = int(fontLine[1])
-korsi = int(fontLine[2])
-max_block_width = int(fontLine[3])
-comment_lines = int(fontLine[5])
-num_chars = int(fontLine[8])
+font_filename = 'fonts/aipara.flf'
+try:
+  fontFile = open(font_filename)
+  flf_headers = fontFile.readline().split(' ')
+except:
+  message("Error", f"{font_filename} not found")
+
+boardh = int(flf_headers[1])
+korsi = int(flf_headers[2])
+max_block_width = int(flf_headers[3])
+comment_lines = int(flf_headers[5])
+num_chars = int(flf_headers[8])
 for _ in range(comment_lines):
     fontFile.readline()
 
-# airaFont is character to block
-airaFont = dict()
+# font glyphs is character to block
+font_glyphs = dict()
 for i in range(num_chars):
     persianChars = fontFile.readline()[:-1]
     persionAsciiChars = '\n'.join([fontFile.readline()[:-2] for i in range(boardh)])[:-1]
-    airaFont[persianChars] = persionAsciiChars
+    font_glyphs[persianChars] = persionAsciiChars
 
 
 # copy a block into the board
@@ -84,8 +86,8 @@ def render(text, boardw, boardh, empty_char = ' '):
             board = [ [empty_char for i in range(boardw)] for j in range(boardh)]
         
         # copy the block of the character into the board
-        if readText in airaFont:
-            board, lenc = copyboard(airaFont[readText], cursor, board)
+        if readText in font_glyphs:
+            board, lenc = copyboard(font_glyphs[readText], cursor, board)
             cursor -= lenc
 
     # print the remaining of the board
