@@ -44,7 +44,7 @@ git clone 'https://github.com/ekm507/araste.git'
 - [x] طراحی یک قلم فارسی اسکی
 - [x] پشتیبانی از قالب flf مشابه figlet
 - [x] طراحی یک قلم دیگر
-- [ ] داشتن ۳ قلم
+- [x] داشتن ۳ قلم
 - [x] تبدیل قلم‌ها به فرمت flf  
 مشابه راهنمای [این صفحه](https://github.com/Marak/asciimo/issues/3)
 - [ ] رفع اشکال‌های قلم flf  
