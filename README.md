@@ -2,7 +2,7 @@
   <h1> آراسته </h1>
   <h2> تبدیل نوشته‌های فارسی به هنر اسکی </h2>
 
-![](./output.png)
+![image](https://user-images.githubusercontent.com/85228025/178108748-21a4bae4-8e2e-46e1-966d-b98cbd56187f.png)
 
 </div>
 
