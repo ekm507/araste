@@ -19,9 +19,17 @@ EOF
 function main(){
   logo
   msg "cloning repo"
+
+# check if directory araste exists
+ if [[ -d "/usr/share/araste" ]];then
+   msg "directory araste already exists. pulling new version"
+   cd /usr/share/araste
+   sudo git pull
+ else
   sudo git clone https://github.com/ekm507/araste.git /usr/share/araste
   msg "installing binary file"
   sudo cp /usr/share/araste/araste.py /bin/araste
   sudo chmod +x /bin/araste
+ fi
 }
 main
