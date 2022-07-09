@@ -9,7 +9,7 @@ def message(level, text):
   print( f"{level}:\n{text}" )
 
 # read from flf font file
-font_filename = 'fonts/aipara.flf'
+font_filename = '/usr/share/araste/fonts/aipara.flf'
 try:
   fontFile = open(font_filename)
   flf_headers = fontFile.readline().split(' ')
