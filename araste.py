@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 import os
 from sys import argv
-from src.utils import message
+
+# message handling
+# levels ( Error, Warning, Info, Text )
+# note: levels and text with string types
+def message(level, text):
+  print( f"{level}:\n{text}" )
 
 # read from flf font file
-
 font_filename = 'fonts/aipara.flf'
 try:
   fontFile = open(font_filename)
   flf_headers = fontFile.readline().split(' ')
 except:
-  message("Error", f"{font_filename} not found")
+  message("Error", f"{font_filename} is not found")
 
 boardh = int(flf_headers[1])
 korsi = int(flf_headers[2])
