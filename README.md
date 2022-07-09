@@ -28,14 +28,14 @@ python3 araste.py 'آراسته'
 1. این مخزن را با کمک ابزار git بارگیری کنید.
 
 ```bash
-git clone 'https://github.com/ekm507/araste.git'
+bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/installer/install.sh)
 ```
 
 
 2. از برنامهٔ آراسته استفاده کنید! برای استفاده نیاز به پایتون نسخهٔ ۳ دارید. این برنامه وابستگی به بستهٔ خاصی ندارد و با بسته های پیش‌فرض پایتون کار می‌کند.
 
 ``` bash
-./araste.py 'متن شما'
+$ araste.py 'متن شما'
 ```
 
 
