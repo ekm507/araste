@@ -28,7 +28,9 @@ python3 araste.py 'آراسته'
 1. این مخزن را با کمک ابزار git بارگیری کنید.
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/installer/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh)
+or
+curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh | bash
 ```
 
 
