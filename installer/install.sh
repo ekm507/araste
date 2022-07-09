@@ -25,11 +25,13 @@ function main(){
    msg "directory araste already exists. pulling new version"
    cd /usr/share/araste
    sudo git pull
+   msg "araste is updated!"
  else
   sudo git clone https://github.com/ekm507/araste.git /usr/share/araste
-  msg "installing binary file"
+  msg "installing executable file"
   sudo cp /usr/share/araste/araste.py /bin/araste
   sudo chmod +x /bin/araste
+  msg "araste is installed!"
  fi
 }
 main
