@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os
-from sys import argv
+import argparse
 
 # message handling
 # levels ( Error, Warning, Info, Text )
@@ -9,12 +9,41 @@ def message(level, text):
   print( f"{level}:\n{text}" )
 
 # read from flf font file
-font_filename = '/usr/share/araste/fonts/aipara.flf'
+
+parser = argparse.ArgumentParser()
+
+try:
+  parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font")
+  parser.add_argument("-t", "--text", help="Text", dest="text")
+except:
+  font_filename = '/usr/share/araste/fonts/aipara.flf'
+  text = ''
+
+args = parser.parse_args()
+
+
+# default dir where fonts are stored
+font_dir = '/usr/share/araste/fonts/'
+
+# if font is a directory:
+if '/' in args.font:
+  font_filename = str(args.font)
+
+else:
+
+  if os.path.exists(font_dir):
+    font_filename = font_dir.rstrip('/') + '/' + args.font.rstrip('.flf') + '.flf'
+
+  else:
+    message('Error', f'font not found!\nis araste installed?')
+    exit(1)
+
 try:
   fontFile = open(font_filename)
   flf_headers = fontFile.readline().split(' ')
 except:
   message("Error", f"{font_filename} is not found")
+  exit(1)
 
 boardh = int(flf_headers[1])
 korsi = int(flf_headers[2])
@@ -100,7 +129,7 @@ def render(text, boardw, boardh, empty_char = ' '):
 
 
 try:
-  text = argv[1]
+  text = args.text
 except:
   text = ""
 
