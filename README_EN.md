@@ -3,17 +3,15 @@
   <h2> making ascii-art out of Persian/Arabic text </h2>
 </div>
 
-Similar to the figlet tool, but for Persian and Arabic texts.
+Similar to the figlet and toilet tools, but for Persian and Arabic texts.
 
-**Note: Araste tool is under Development**
-
-Currently, you can write a command, sentence or several lines of text with the following command, using the default font.
+usage:
 
 ```bash
-$ araste your text
+$ araste <your text>
 ```
 
-or for choose the font
+use `-f` switch to choose font
 
 ```bash
 $ araste 'your persian/arabic text' -f 'fontpath or fontname'
@@ -31,14 +29,14 @@ it can also read text from stdin. so you can do something like this:
 $ echo 'آراسته' | araste
 ```
 
-or for helps
+to get help:
 
 ```bash
 $ araste -h
 ```
 
 
-the Program output with default font:
+an output with the default font (aipara):
 
 ```
                                       ██████
@@ -52,19 +50,19 @@ the Program output with default font:
 
 ## Install and Usage
 
-1. for installing you only need to exec this command.
+1. for installing you only need to execute following command.
 
 ````bash
 bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh)
 ````
 
-or in oter shells for example fish :
+or in oter shells like zsh or fish:
 
 ````bash
 curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh | bash
 ````
 
-2. you only need Python 3 to use the program. this program has no dependencies on oter packages .
+2. you only need Python 3 to use the program. this program has no special dependencies.
 
 ## Todos
 
