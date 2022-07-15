@@ -42,14 +42,4 @@ curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.s
 2. you only need Python 3 to use the program. this program has no dependencies on oter packages .
 
 ## Todos
-
-- [x] Designing a Persian ascii font.
-- [x] Support flf format similar to figlet.
-- [x] Another font design.
-- [ ] Having 3 font.
-- [x] converting fonts to flf format.
-- [ ] debuging the flf format fonts.
-- [x] development a tool on commandline with installer.
-- [ ] release the version one
-- [x] write an english readme
-- [ ] Adding the possibility of selecting fonts and listing available fonts
+fot check the new todo you can see the ![TODOS](https://github.com/ekm507/araste/blob/main/TODOS_EN.md)
