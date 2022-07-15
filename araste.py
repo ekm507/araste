@@ -11,9 +11,9 @@ def message(level, text):
 # read from flf font file
 
 parser = argparse.ArgumentParser()
-
+default_font_name = 'aipara'
 try:
-  parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font")
+  parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font", default=default_font_name)
   parser.add_argument("-t", "--text", help="Text", dest="text")
 except:
   font_filename = '/usr/share/araste/fonts/aipara.flf'
