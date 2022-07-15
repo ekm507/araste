@@ -10,8 +10,21 @@ Similar to the figlet tool, but for Persian and Arabic texts.
 Currently, you can write a command, sentence or several lines of text with the following command, using the default font.
 
 ```bash
-$ araste 'آراسته'
+$ araste -t 'آراسته'
 ```
+
+or for choose the font
+
+```bash
+$ araste -t 'آراسته' -f 'fontpath'
+```
+
+or fot helps
+
+```bash
+$ araste -h
+```
+
 
 the Program output with default font:
 
@@ -52,4 +65,4 @@ curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.s
 - [x] development a tool on commandline with installer.
 - [ ] release the version one
 - [x] write an english readme
-- [ ] Adding the possibility of selecting fonts and listing available fonts
+- [x] Adding the possibility of selecting fonts and listing available fonts
