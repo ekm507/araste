@@ -1,6 +1,6 @@
 <div align="center">
   <h1> Araste </h1>
-  <h2> Transforming Persian writings into the art of skiing </h2>
+  <h2> making ascii-art out of Persian/Arabic text </h2>
 </div>
 
 Similar to the figlet tool, but for Persian and Arabic texts.
