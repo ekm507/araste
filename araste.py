@@ -130,7 +130,6 @@ board_width = os.get_terminal_size().columns
 
 if len(args.text) > 0:
   text = args.text
-  print(text, 1)
   render(text, board_width, boardh, ' ')
 else:
   while True:
