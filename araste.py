@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os
-from sys import argv
+import argparse
 
 # message handling
 # levels ( Error, Warning, Info, Text )
@@ -9,7 +9,29 @@ def message(level, text):
   print( f"{level}:\n{text}" )
 
 # read from flf font file
+
+parser = argparse.ArgumentParser()
+
+try:
+  parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font")
+  parser.add_argument("-t", "--text", help="Text", dest="text")
+except:
+  font_filename = '/usr/share/araste/fonts/aipara.flf'
+  text = ''
+
+args = parser.parse_args()
+
 font_filename = '/usr/share/araste/fonts/aipara.flf'
+
+if args.font == 'aipara':
+  pass
+elif args.font == 'aipara-mini':
+  font_filename = '/usr/share/araste/fonts/aipara_mini.flf'
+elif args.font == None:
+  pass
+else:
+  message('Error', f'I dont know this path ({args.font})')
+
 try:
   fontFile = open(font_filename)
   flf_headers = fontFile.readline().split(' ')
@@ -100,7 +122,7 @@ def render(text, boardw, boardh, empty_char = ' '):
 
 
 try:
-  text = argv[1]
+  text = args.text
 except:
   text = ""
 
