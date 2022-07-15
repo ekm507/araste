@@ -10,16 +10,22 @@ Similar to the figlet tool, but for Persian and Arabic texts.
 Currently, you can write a command, sentence or several lines of text with the following command, using the default font.
 
 ```bash
-$ araste -t 'آراسته'
+$ araste your text
 ```
 
 or for choose the font
 
 ```bash
-$ araste -t 'آراسته' -f 'fontpath'
+$ araste 'your persian/arabic text' -f 'fontpath or fontname'
 ```
 
-or fot helps
+it can also read text from stdin. so you can do something like this:
+
+```bash
+$ echo 'آراسته' | araste
+```
+
+or for helps
 
 ```bash
 $ araste -h

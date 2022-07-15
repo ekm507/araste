@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser()
 default_font_name = 'aipara'
 
 parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font", default=default_font_name)
-parser.add_argument("-t", "--text", help="Text", dest="text", default='')
+parser.add_argument("text", help="Text", nargs='*')
 
 args = parser.parse_args()
 
@@ -127,9 +127,8 @@ def render(text, boardw, boardh, empty_char = ' '):
 
 board_width = os.get_terminal_size().columns
 
-
 if len(args.text) > 0:
-  text = args.text
+  text = ' '.join(args.text)
   render(text, board_width, boardh, ' ')
 else:
   while True:
