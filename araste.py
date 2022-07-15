@@ -21,22 +21,29 @@ except:
 
 args = parser.parse_args()
 
-font_filename = str(args.font)
 
-if args.font == 'aipara':
-  font_filename = '/usr/share/araste/fonts/aipara.flf'
-elif args.font == 'aipara-mini':
-  font_filename = '/usr/share/araste/fonts/aipara_mini.flf'
-elif args.font == None:
-  font_filename = '/usr/share/araste/fonts/aipara.flf'
+# default dir where fonts are stored
+font_dir = '/usr/share/araste/fonts/'
+
+# if font is a directory:
+if '/' in args.font:
+  font_filename = str(args.font)
+
 else:
-  message('Warning', f'I dont know this path ({args.font})')
+
+  if os.path.exists(font_dir):
+    font_filename = font_dir.rstrip('/') + '/' + args.font.rstrip('.flf') + '.flf'
+
+  else:
+    message('Error', f'font not found!\nis araste installed?')
+    exit(1)
 
 try:
   fontFile = open(font_filename)
   flf_headers = fontFile.readline().split(' ')
 except:
   message("Error", f"{font_filename} is not found")
+  exit(1)
 
 boardh = int(flf_headers[1])
 korsi = int(flf_headers[2])
