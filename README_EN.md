@@ -10,8 +10,21 @@ Similar to the figlet tool, but for Persian and Arabic texts.
 Currently, you can write a command, sentence or several lines of text with the following command, using the default font.
 
 ```bash
-$ araste 'آراسته'
+$ araste -t 'آراسته'
 ```
+
+or for choose the font
+
+```bash
+$ araste -t 'آراسته' -f 'fontpath'
+```
+
+or fot helps
+
+```bash
+$ araste -h
+```
+
 
 the Program output with default font:
 
@@ -42,4 +55,6 @@ curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.s
 2. you only need Python 3 to use the program. this program has no dependencies on oter packages .
 
 ## Todos
-fot check the new todo you can see the ![TODOS](https://github.com/ekm507/araste/blob/main/TODOS_EN.md)
+
+Todos have been moved to a separate file. ![TODOS](https://github.com/ekm507/araste/blob/main/TODOS_EN.md)
+
