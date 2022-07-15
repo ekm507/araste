@@ -125,14 +125,17 @@ def render(text, boardw, boardh, empty_char = ' '):
         print(''.join(line[cursor:]))
 
 
-try:
-  text = args.text
-except:
-  text = ""
-
 board_width = os.get_terminal_size().columns
 
-try:
+
+if len(args.text) > 0:
+  text = args.text
+  print(text, 1)
   render(text, board_width, boardh, ' ')
-except:
-  render("", board_width, boardh, ' ')
+else:
+  while True:
+    try:
+      text = input()
+      render(text, board_width, boardh, ' ')
+    except EOFError:
+      break
