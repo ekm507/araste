@@ -12,12 +12,9 @@ def message(level, text):
 
 parser = argparse.ArgumentParser()
 default_font_name = 'aipara'
-try:
-  parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font", default=default_font_name)
-  parser.add_argument("-t", "--text", help="Text", dest="text")
-except:
-  font_filename = '/usr/share/araste/fonts/aipara.flf'
-  text = ''
+
+parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font", default=default_font_name)
+parser.add_argument("-t", "--text", help="Text", dest="text", default='')
 
 args = parser.parse_args()
 
