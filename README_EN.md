@@ -19,6 +19,12 @@ or for choose the font
 $ araste 'your persian/arabic text' -f 'fontpath or fontname'
 ```
 
+for now, there are 2 fonts that you can use:
+```
+aipara
+aipara_mini
+```
+
 it can also read text from stdin. so you can do something like this:
 
 ```bash
