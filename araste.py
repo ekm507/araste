@@ -21,16 +21,16 @@ except:
 
 args = parser.parse_args()
 
-font_filename = '/usr/share/araste/fonts/aipara.flf'
+font_filename = str(args.font)
 
 if args.font == 'aipara':
-  pass
+  font_filename = '/usr/share/araste/fonts/aipara.flf'
 elif args.font == 'aipara-mini':
   font_filename = '/usr/share/araste/fonts/aipara_mini.flf'
 elif args.font == None:
-  pass
+  font_filename = '/usr/share/araste/fonts/aipara.flf'
 else:
-  message('Error', f'I dont know this path ({args.font})')
+  message('Warning', f'I dont know this path ({args.font})')
 
 try:
   fontFile = open(font_filename)
