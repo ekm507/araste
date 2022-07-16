@@ -1,6 +1,6 @@
 # TODOS
 
-- [ ] release the version one
+- [X] release the version one
 - [ ] debuging the flf format fonts.
 - [x] Having 3 font.
 - [x] Designing a Persian ascii font.
