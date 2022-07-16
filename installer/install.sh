@@ -33,7 +33,7 @@ function main(){
 
 
 # check if directory araste exists
- if [[ -d install_path ]];then
+ if [ -d $install_path ];then
 
    msg "directory araste already exists. pulling new version"
 
