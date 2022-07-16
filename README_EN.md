@@ -71,7 +71,12 @@ curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.s
 
 2. you only need Python 3 to use the program. this program has no special dependencies.
 
-## unistall
+## Instaling Fonts
+For Installing Fonts You Can Use araste-get
+````bash
+araste-get FontName
+````
+## Unistall
 
 to uninstall araste, simply remove it's files.
 
