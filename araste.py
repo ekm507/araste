@@ -20,7 +20,15 @@ args = parser.parse_args()
 
 
 # default dir where fonts are stored
-font_dir = '/usr/share/araste/fonts/'
+# there are 2 possible options. root directory or home directory
+root_font_dir = '/usr/share/araste/fonts/'
+usr_font_dir = os.path.expanduser('~') + '/.local/share/araste/fonts/'
+
+font_dir = ''
+if os.path.exists(root_font_dir):
+  font_dir = root_font_dir
+elif os.path.exists(usr_font_dir):
+  font_dir = os.path.realpath(usr_font_dir)
 
 # if font is a directory:
 if '/' in args.font:
