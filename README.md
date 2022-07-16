@@ -91,9 +91,8 @@ sudo rm /usr/bin/araste-get
 اگر آراسته را تنها برای کاربر خودتان نصب کرده‌اید:
 
 ```bash
-rm -rf ~/.local/share/araste
-rm ~/.local/bin/araste
-rm ~/.local/bin/araste-get
+$ rm -rf ~/.local/share/araste*
+$ rm ~/.local/bin/araste*
 ```
 
 ## برای انجام
