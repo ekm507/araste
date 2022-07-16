@@ -84,5 +84,5 @@ $ rm ~/.local/bin/araste
 
 ## Todos
 
-Todos have been moved to a separate file. ![TODOS](https://github.com/ekm507/araste/blob/main/TODOS_EN.md)
+Todos have been moved to a separate file. [TODOS](https://github.com/ekm507/araste/blob/main/TODOS_EN.md)
 
