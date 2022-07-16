@@ -62,6 +62,22 @@ curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.s
 
 2. از برنامهٔ آراسته استفاده کنید! برای استفاده نیاز به پایتون نسخهٔ ۳ دارید. این برنامه وابستگی به بستهٔ خاصی ندارد و با بسته های پیش‌فرض پایتون کار می‌کند.
 
+## حذف برنامه
+برای پاک کردن برنامه از روی سیستم، کافیست فایل‌های آن را پاک کنید.
+
+اگر آراسته را برای کل سیستم نصب کرده‌اید:
+
+```bash
+$ sudo rm -rf /usr/share/araste
+$ sudo rm /usr/bin/araste
+```
+
+اگر آراسته را تنها برای کاربر خودتان نصب کرده‌اید:
+
+```bash
+$ rm -rf ~/.local/share/araste
+$ rm ~/.local/bin/araste
+```
 
 ## برای انجام
 برای انجام کار جدید فایل ![TODOS.md](https://github.com/ekm507/araste/blob/main/TODOS.md) را مشاهده کنید
