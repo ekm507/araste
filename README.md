@@ -1,4 +1,4 @@
-[english](./README_EN.md)
+[English Version](./README_EN.md)
 
 <div align="center">
   <h1> آراسته </h1>
