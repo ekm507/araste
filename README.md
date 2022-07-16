@@ -84,8 +84,8 @@ $ sudo rm /usr/bin/araste
 اگر آراسته را تنها برای کاربر خودتان نصب کرده‌اید:
 
 ```bash
-$ rm -rf ~/.local/share/araste
-$ rm ~/.local/bin/araste
+$ rm -rf ~/.local/share/araste*
+$ rm ~/.local/bin/araste*
 ```
 
 ## برای انجام
