@@ -1,8 +1,8 @@
 # TODOS
 
 - [ ] release the version one
-- [ ] Having 3 font.
 - [ ] debuging the flf format fonts.
+- [x] Having 3 font.
 - [x] Designing a Persian ascii font.
 - [x] Support flf format similar to figlet.
 - [x] Another font design.
