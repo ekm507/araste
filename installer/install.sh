@@ -57,11 +57,15 @@ function main(){
       msg "installing executable file"
       sudo cp $install_path/araste.py $exec_path/araste
       sudo chmod +x $exec_path/araste
+      sudo cp $install_path/araste-get.py $exec_path/araste-get
+      sudo chmod +x $exec_path/araste-get
       msg "araste is installed!"
     else
       git clone https://github.com/ekm507/araste.git $install_path
       cp $install_path/araste.py $exec_path/araste
       chmod +x $exec_path/araste
+      cp $install_path/araste-get.py $exec_path/araste-get
+      chmod +x $exec_path/araste-get
       msg "araste is installed!"
     fi
 
