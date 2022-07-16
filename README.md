@@ -80,4 +80,4 @@ $ rm ~/.local/bin/araste
 ```
 
 ## برای انجام
-برای انجام کار جدید فایل ![TODOS.md](https://github.com/ekm507/araste/blob/main/TODOS.md) را مشاهده کنید
+برای انجام کار جدید فایل [TODOS.md](https://github.com/ekm507/araste/blob/main/TODOS.md) را مشاهده کنید
