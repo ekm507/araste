@@ -8,19 +8,19 @@ Similar to the figlet and toilet tools, but for Persian and Arabic texts.
 usage:
 
 ```bash
-$ araste <your text>
+araste <your text>
 ```
 
 use `-f` switch to choose font
 
 ```bash
-$ araste 'your persian/arabic text' -f 'fontpath or fontname'
+araste 'your persian/arabic text' -f 'fontpath or fontname'
 ```
 
 to get a list of installed fonts:
 
 ```bash
-$ araste --list
+araste --list
 ```
 
 for now, there are a few fonts that you can use:
@@ -33,13 +33,13 @@ zivar
 it can also read text from stdin. so you can do something like this:
 
 ```bash
-$ echo 'آراسته' | araste
+echo 'آراسته' | araste
 ```
 
 to get help:
 
 ```bash
-$ araste -h
+araste -h
 ```
 
 
@@ -83,16 +83,19 @@ to uninstall araste, simply remove it's files.
 if you have installed araste for system:
 
 ```bash
-$ sudo rm -rf /usr/share/araste
-$ sudo rm /usr/bin/araste
+sudo rm -rf /usr/share/araste
+sudo rm /usr/bin/araste
+sudo rm /usr/bin/araste-get
 ```
 
 or if you have installed araste for your user only:
 
 ```bash
-$ rm -rf ~/.local/share/araste
-$ rm ~/.local/bin/araste
+rm -rf ~/.local/share/araste
+rm ~/.local/bin/araste
+rm ~/.local/bin/araste-get
 ```
+
 
 ## Todos
 
