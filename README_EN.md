@@ -1,19 +1,49 @@
 <div align="center">
   <h1> Araste </h1>
-  <h2> Transforming Persian writings into the art of skiing </h2>
+  <h2> making ascii-art out of Persian/Arabic text </h2>
 </div>
 
-Similar to the figlet tool, but for Persian and Arabic texts.
+Similar to the figlet and toilet tools, but for Persian and Arabic texts.
 
-**Note: Araste tool is under Development**
-
-Currently, you can write a command, sentence or several lines of text with the following command, using the default font.
+usage:
 
 ```bash
-$ araste 'آراسته'
+$ araste <your text>
 ```
 
-the Program output with default font:
+use `-f` switch to choose font
+
+```bash
+$ araste 'your persian/arabic text' -f 'fontpath or fontname'
+```
+
+to get a list of installed fonts:
+
+```bash
+$ araste --list
+```
+
+for now, there are a few fonts that you can use:
+```
+aipara
+aipara_mini
+zivar
+```
+
+it can also read text from stdin. so you can do something like this:
+
+```bash
+$ echo 'آراسته' | araste
+```
+
+to get help:
+
+```bash
+$ araste -h
+```
+
+
+an output with the default font (aipara):
 
 ```
                                       ██████
@@ -27,29 +57,39 @@ the Program output with default font:
 
 ## Install and Usage
 
-1. for installing you only need to exec this command.
+1. for installing you only need to execute following command.
 
 ````bash
 bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh)
 ````
 
-or in oter shells for example fish :
+or in oter shells like zsh or fish:
 
 ````bash
 curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh | bash
 ````
 
-2. you only need Python 3 to use the program. this program has no dependencies on oter packages .
+2. you only need Python 3 to use the program. this program has no special dependencies.
+
+## unistall
+
+to uninstall araste, simply remove it's files.
+
+if you have installed araste for system:
+
+```bash
+$ sudo rm -rf /usr/share/araste
+$ sudo rm /usr/bin/araste
+```
+
+or if you have installed araste for your user only:
+
+```bash
+$ rm -rf ~/.local/share/araste
+$ rm ~/.local/bin/araste
+```
 
 ## Todos
 
-- [x] Designing a Persian ascii font.
-- [x] Support flf format similar to figlet.
-- [x] Another font design.
-- [ ] Having 3 font.
-- [x] converting fonts to flf format.
-- [ ] debuging the flf format fonts.
-- [x] development a tool on commandline with installer.
-- [ ] release the version one
-- [x] write an english readme
-- [ ] Adding the possibility of selecting fonts and listing available fonts
+Todos have been moved to a separate file. [TODOS](https://github.com/ekm507/araste/blob/main/TODOS_EN.md)
+

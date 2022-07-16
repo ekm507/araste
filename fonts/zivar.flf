@@ -1,5 +1,5 @@
 flf2a$ 19 13 26 0 4 1 0 137
-a font based on vazir font
+zivar: a font based on Vazir font
     this is a font file for araste
     designed by Erfan Kheyrollahi <ekm507@gmail.com>
 
@@ -111,14 +111,14 @@ lOO' :@
  @
  @
  @
-  d@
-  M@
-  M@
-  M@
-  M@
-  N0@
-  .okOOO@
-   @
+    d@
+    M@
+    M@
+    M@
+    M@
+    N0@
+    .okOOO@
+     @
  @
  @
  @
@@ -174,12 +174,12 @@ lOO',O@
  @
  @
  @
-.o.          ,@
-oM.          cM@
-.XXc'.    ..;X@
-  'cdkOOOOkxo@
-       .@
-       :x@
+  .o.          ,@
+  oM.          cM@
+  .XXc'.    ..;X@
+    'cdkOOOOkxo  @
+         .@
+         :x@
  @
  @
 @@
@@ -194,12 +194,12 @@ oM.          cM@
  @
  @
  @
-.o@
-oM.          :M@
-.XXc'.    ..:XMl@
-  'cdkOOOOkdc..dOOO@
-       ,@
-       o@
+  .o@
+  oM.          :M@
+  .XXc'.    ..:XMl@
+    'cdkOOOOkdc..dOOO@
+         ,@
+         o@
  @
  @
 @@
@@ -254,13 +254,13 @@ lOOOOx@
  @
  @
  @
-.o.          ,@
-oM.          cM@
-.XXc'.    ..;X@
-  'cdkOOOOkxo@
-     .l. l@
-     .c',:@
-       l@
+  .o.          ,@
+  oM.          cM@
+  .XXc'.    ..;X@
+    'cdkOOOOkxo  @
+       .l. l@
+       .c',:@
+         l@
  @
 @@
 ـپ
@@ -274,13 +274,13 @@ oM.          cM@
  @
  @
  @
-.o@
-oM.          :M@
-.XXc'.    ..:XMl@
-  'cdkOOOOkdc..dOOO@
-     .l. l@
-     .c',:@
-       l@
+  .o@
+  oM.          :M@
+  .XXc'.    ..:XMl@
+    'cdkOOOOkdc..dOOO@
+       .l. l@
+       .c',:@
+         l@
  @
 @@
 ـپـ
@@ -333,11 +333,11 @@ lOOOOkd@
  @
  @
  @
-     ;k.'k@
-.o.   ,  ,   ,@
-oM.          cM@
-.XXc'.    ..;X@
-  'cdkOOOOkxo@
+       ;k.'k@
+  .o.   ,  ,   ,@
+  oM.          cM@
+  .XXc'.    ..;X@
+    'cdkOOOOkxo  @
  @
  @
  @
@@ -353,11 +353,11 @@ oM.          cM@
  @
  @
  @
-     ,k'.k@
-.o.   ,  @
-oM.          :M@
-.XXc'.    ..:XMl@
-  'cdkOOOOkdc..dOOO@
+       ,k'.k@
+  .o.   ,  @
+  oM.          :M@
+  .XXc'.    ..:XMl@
+    'cdkOOOOkdc..dOOO@
  @
  @
  @
@@ -412,13 +412,13 @@ lOOOOkd@
  @
  @
  @
-       c@
-      ;;,@
-.o.  ,x..x'  ,@
-oM.          cM@
-.XXc'.    ..;X@
-  'cdkOOOOkxo@
- @
+         c@
+        ;;,@
+  .o.  ,x..x'  ,@
+  oM.          cM@
+  .XXc'.    ..;X@
+    'cdkOOOOkxo  @
+   @
  @
  @
  @
@@ -432,13 +432,13 @@ oM.          cM@
  @
  @
  @
-       :@
-      ;;;@
-.o.  'x..x@
-oM.          :M@
-.XXc'.    ..:XMl@
-  'cdkOOOOkdc..dOOO@
- @
+         :@
+        ;;;@
+  .o.  'x..x@
+  oM.          :M@
+  .XXc'.    ..:XMl@
+    'cdkOOOOkdc..dOOO@
+   @
  @
  @
  @
@@ -497,7 +497,7 @@ lOOOOkd@
 .kNkkK0d;@
  .  ,lOWXK@
  .kNx;@
-.Wd   '@
+.Wd   '  @
 oM    l@
 .X0,     .@
   ,ok0000k@
@@ -657,7 +657,7 @@ lOOOOOko:@
 .kNkkK0d;@
  .  ,lOWXK@
  .kNx;@
-.W@
+.W        @
 o@
 .X0,     .@
   ,ok0000k@
@@ -714,10 +714,10 @@ lOOOOOko;.  ,dkOOO@
  @
  @
  @
-     l0KKOo@
-    .l.  .,OMN@
-      .'ckKx:@
-lOOOOOko:@
+     l0KKOo  @
+    .l.  .,OMN  @
+      .'ckKx:  @
+lOOOOOko:  @
  @
  @
  @
@@ -725,23 +725,23 @@ lOOOOOko:@
 @@
 خ
 @
- @
- @
- @
- @
- @
- @
-    @
+@
+@
+@
+@
+@
+@
+@
    .K@
    .@
 .kNkkK0d;@
  .  ,lOWXK@
  .kNx;@
-.W@
+.W        @
 o@
 .X0,     .@
   ,ok0000k@
- @
+@
 @@
 ـخ
 @
@@ -791,13 +791,13 @@ lOOOOOko;.  ,dkOOO@
  @
  @
  @
- @
-       'W@
-        @
-     l0KKOo@
-    .l.  .,OMN@
-      .'ckKx:@
-lOOOOOko:@
+   @
+       'W  @
+          @
+     l0KKOo  @
+    .l.  .,OMN  @
+      .'ckKx:  @
+lOOOOOko:  @
  @
  @
  @
@@ -812,13 +812,13 @@ lOOOOOko:@
  @
  @
  @
- @
-  'l@
-  .lX0@
-     cM@
- . ..cM@
-;kOOxo@
- @
+   @
+    'l@
+    .lX0@
+       cM@
+   . ..cM@
+  ;kOOxo@
+   @
  @
  @
  @
@@ -832,13 +832,13 @@ lOOOOOko:@
  @
  @
  @
- @
-    l@
-    xW@
-     O@
- . ..kMX@
-;OOOxc.:kOOO@
- @
+   @
+      l@
+      xW@
+       O@
+   . ..kMX@
+  ;OOOxc.:kOOO@
+   @
  @
  @
  @
@@ -891,13 +891,13 @@ lOO'oOOkxc@
  @
  @
  @
- .d@
-  :@
-  'l@
-  .lX0@
-     cM@
- . ..cM@
-;kOOxo@
+   .d@
+    :@
+    'l@
+    .lX0@
+       cM@
+   . ..cM@
+  ;kOOxo@
  @
  @
  @
@@ -911,13 +911,13 @@ lOO'oOOkxc@
  @
  @
  @
-   :@
-   '@
-    l@
-    xW@
-     O@
- . ..kMX@
-;OOOxc.:kOOO@
+     :@
+     '@
+      l@
+      xW@
+       O@
+   . ..kMX@
+  ;OOOxc.:kOOO@
  @
  @
  @
@@ -975,11 +975,11 @@ lOO'oOOkxc@
  @
  @
  @
-     o@
-     K@
-     0@
-   .dW@
-.kK0@
+       o@
+       K@
+       0@
+     .dW@
+  .kK0@
  @
  @
 @@
@@ -995,11 +995,11 @@ lOO'oOOkxc@
  @
  @
  @
-     o@
-     KN@
-     0NkOOO@
-   .dW@
-.kK0@
+       o@
+       KN@
+       0NkOOO@
+     .dW@
+  .kK0@
  @
  @
 @@
@@ -1052,14 +1052,14 @@ lOO'  0@
  @
  @
  @
- @
-   .K@
-    @
-     o@
-     K@
-     0@
-   .dW@
-.kK0@
+   @
+     .K@
+      @
+       o@
+       K@
+       0@
+     .dW@
+  .kK0@
  @
  @
 @@
@@ -1072,14 +1072,14 @@ lOO'  0@
  @
  @
  @
- @
-   .0@
-    @
-     o@
-     KN@
-     ONkOOO@
-   .dW@
-.kK0@
+   @
+     .0@
+      @
+       o@
+       KN@
+       ONkOOO@
+     .dW@
+  .kK0@
  @
  @
 @@
@@ -1132,14 +1132,14 @@ lOO'  0@
  @
  @
  @
-   .O@
-  ;l',o@
-  .; .@
-     o@
-     K@
-     0@
-   .dW@
-.kK0@
+     .O@
+    ;l',o@
+    .; .@
+       o@
+       K@
+       0@
+     .dW@
+  .kK0@
  @
  @
 @@
@@ -1152,14 +1152,14 @@ lOO'  0@
  @
  @
  @
-    O@
-  ;l',o@
-  .; .@
-     o@
-     KN@
-     0NkOOO@
-   .dW@
-.kK0@
+      O@
+    ;l',o@
+    .; .@
+       o@
+       KN@
+       0NkOOO@
+     .dW@
+  .kK0@
  @
  @
 @@
@@ -1214,14 +1214,14 @@ lOO'  O@
  @
  @
  @
-                    :@
- :.       o;   'N.  W@
-,M,       xW;..dMd.'M@
-oM        cMxOOo'dOk@
-'Md      .X@
- .kX0kkOK0@
-      @
- @
+                      :@
+   :.       o;   'N.  W@
+  ,M,       xW;..dMd.'M@
+  oM        cMxOOo'dOk@
+  'Md      .X@
+   .kX0kkOK0@
+        @
+   @
 @@
 ـس
 @
@@ -1234,14 +1234,14 @@ oM        cMxOOo'dOk@
  @
  @
  @
- @
- :.       o;   'N.  N@
-,M,       xW;..dMd..WN@
-oM        cMxOOo'dOk::kOOO@
-'Md      .X@
- .kX0kkOK0@
-      @
- @
+   @
+   :.       o;   'N.  N@
+  ,M,       xW;..dMd..WN@
+  oM        cMxOOo'dOk::kOOO@
+  'Md      .X@
+   .kX0kkOK0@
+        @
+   @
 @@
 ـسـ
 @
@@ -1292,14 +1292,14 @@ lOOOOd'lOOd'lOOo@
  @
  @
  @
-               k@
-             ;X..X@
-                    :@
- :.       o;   'N.  W@
-,M,       xW;..dMd.'M@
-oM        cMxOOo'dOk@
-'Md      .X@
- .kX0kkOK0@
+                 k@
+               ;X..X@
+                      :@
+   :.       o;   'N.  W@
+  ,M,       xW;..dMd.'M@
+  oM        cMxOOo'dOk@
+  'Md      .X@
+   .kX0kkOK0@
       @
  @
 @@
@@ -1312,14 +1312,14 @@ oM        cMxOOo'dOk@
  @
  @
  @
-               k@
-             ;X..X@
- @
- :.       o;   'N.  N@
-,M,       xW;..dMd..WN@
-oM        cMxOOo'dOk::kOOO@
-'Md      .X@
- .kX0kkOK0@
+                 k@
+               ;X..X@
+   @
+   :.       o;   'N.  N@
+  ,M,       xW;..dMd..WN@
+  oM        cMxOOo'dOk::kOOO@
+  'Md      .X@
+   .kX0kkOK0@
       @
  @
 @@
@@ -1373,14 +1373,14 @@ lOOOOd'lOOd'lOOo@
  @
  @
  @
- @
-                ;xKK0@
- :.       o;  :NO,  .W@
-,M,       xW;OW: ..,oM@
-oM        cMdkOOOOxo:@
-'Md      .X@
- .kX0kkOK0@
-      @
+   @
+                  ;xKK0@
+   :.       o;  :NO,  .W@
+  ,M,       xW;OW: ..,oM@
+  oM        cMdkOOOOxo:@
+  'Md      .X@
+   .kX0kkOK0@
+        @
  @
 @@
 ـص
@@ -1393,14 +1393,14 @@ oM        cMdkOOOOxo:@
  @
  @
  @
- @
-                ;xKK0@
- :.       o;  :NO,  .W@
-,M,       xW;OW: ..,oM@
-oM        cMdkOOOOxo:lkOOO@
-'Md      .X@
- .kX0kkOK0@
-      @
+   @
+                  ;xKK0@
+   :.       o;  :NO,  .W@
+  ,M,       xW;OW: ..,oM@
+  oM        cMdkOOOOxo:lkOOO@
+  'Md      .X@
+   .kX0kkOK0@
+        @
  @
 @@
 ـصـ
@@ -1452,14 +1452,14 @@ lOOOkc'oxOOOOko:@
  @
  @
  @
-                 .X@
- @
-                ;xKK0@
- :.       o;  :NO,  .W@
-,M,       xW;OW: ..,oM@
-oM        cMdkOOOOxo:@
-'Md      .X@
- .kX0kkOK0@
+                   .X@
+   @
+                  ;xKK0@
+   :.       o;  :NO,  .W@
+  ,M,       xW;OW: ..,oM@
+  oM        cMdkOOOOxo:@
+  'Md      .X@
+   .kX0kkOK0@
       @
  @
 @@
@@ -1472,14 +1472,14 @@ oM        cMdkOOOOxo:@
  @
  @
  @
-                 .X@
- @
-                ;xKK0@
- :.       o;  :NO,  .W@
-,M,       xW;OW: ..,oM@
-oM        cMdkOOOOxo:lkOOO@
-'Md      .X@
- .kX0kkOK0@
+                   .X@
+   @
+                  ;xKK0@
+   :.       o;  :NO,  .W@
+  ,M,       xW;OW: ..,oM@
+  oM        cMdkOOOOxo:lkOOO@
+  'Md      .X@
+   .kX0kkOK0@
       @
  @
 @@
@@ -1530,14 +1530,14 @@ lOOOkc'oxOOOOko:@
  @
  @
  @
- @
-   c@
-   0@
-   0@
-   00.lOKKk@
-   0WNo.  lM@
-  .N0....;0N@
-:OOOOOOkxl@
+   @
+     c@
+     0@
+     0@
+     00.lOKKk@
+     0WNo.  lM@
+    .N0....;0N@
+  :OOOOOOkxl  @
  @
  @
  @
@@ -1550,14 +1550,14 @@ lOOOkc'oxOOOOko:@
  @
  @
  @
- @
-   c@
-   0@
-   0@
-   00.lOKKk@
-   0WNo.  lM@
-  .N0....;0W@
-:OOOOOOkxl:dkOOO@
+   @
+     c@
+     0@
+     0@
+     00.lOKKk@
+     0WNo.  lM@
+    .N0....;0W@
+  :OOOOOOkxl:dkOOO@
  @
  @
  @
@@ -1597,7 +1597,7 @@ lOOOOOOOOkxl:dkOOO@
      0K cOKKk@
      0WNo.  lM@
     .N0....;0N@
-lOOOOOOOOkxl@
+lOOOOOOOOkxl  @
  @
  @
  @
@@ -1610,14 +1610,14 @@ lOOOOOOOOkxl@
  @
  @
  @
- @
-   c@
-   00  .W@
-   0@
-   00.lOKKk@
-   0WNo.  lM@
-  .N0....;0N@
-:OOOOOOkxl@
+   @
+     c@
+     00  .W@
+     0@
+     00.lOKKk@
+     0WNo.  lM@
+    .N0....;0N@
+  :OOOOOOkxl  @
  @
  @
  @
@@ -1630,14 +1630,14 @@ lOOOOOOOOkxl@
  @
  @
  @
- @
-   c@
-   00  'W@
-   0@
-   00.lOKKk@
-   0WNo.  lM@
-  .N0....;0W@
-:OOOOOOkxl:dkOOO@
+   @
+     c@
+     00  'W@
+     0@
+     00.lOKKk@
+     0WNo.  lM@
+    .N0....;0W@
+  :OOOOOOkxl:dkOOO@
  @
  @
  @
@@ -1677,7 +1677,7 @@ lOOOOOOOOkxl:dkOOO@
      0K cOKKk@
      0WNo.  lM@
     .N0....;0N@
-lOOOOOOOOkxl@
+lOOOOOOOOkxl  @
  @
  @
  @
@@ -1693,14 +1693,14 @@ lOOOOOOOOkxl@
  @
  @
  @
-   cKK0K@
-  ;M@
-   X0;:cc@
- .kNkl:;;@
-.W@
-o@
-.X0,     .@
-  ,ok000Ox@
+     cKK0K@
+    ;M@
+     X0;:cc@
+   .kNkl:;;@
+  .W       @
+  o@
+  .X0,     .@
+    ,ok000Ox@
  @
 @@
 ـع
@@ -1713,14 +1713,14 @@ o@
  @
  @
  @
-    .@
- oXOkkkKK@
- ;Xk;'oK@
-  'XWXWc.@
- 0X;  .cdkOOO@
-l@
-.Wk'    @
-  ;dkOOkd@
+      .@
+   oXOkkkKK@
+   ;Xk;'oK@
+    'XWXWc.@
+   0X;  .cdkOOO@
+  l@
+  .Wk'    @
+    ;dkOOkd@
  @
 @@
 ـعـ
@@ -1771,16 +1771,16 @@ lOOOOOkdo:,@
  @
  @
  @
-     K@
- @
-   cKK0K@
-  ;M@
-   X0;:cc@
- .kNkl:;;@
-.W@
-o@
-.X0,     .@
-  ,ok000Ox@
+       K@
+   @
+     cKK0K@
+    ;M@
+     X0;:cc@
+   .kNkl:;;@
+  .W       @
+  o@
+  .X0,     .@
+    ,ok000Ox@
  @
 @@
 ـغ
@@ -1791,16 +1791,16 @@ o@
  @
  @
  @
-     @
-    xX@
-    .@
- oXOkkkKK@
- ;Xk;'oK@
-  'XWXWc.@
- 0X;  .cdkOOO@
-l@
-.Wk'    @
-  ;dkOOkd@
+       @
+      xX@
+      .@
+   oXOkkkKK@
+   ;Xk;'oK@
+    'XWXWc.@
+   0X;  .cdkOOO@
+  l@
+  .Wk'    @
+    ;dkOOkd@
  @
 @@
 ـغـ
@@ -1851,14 +1851,14 @@ lOOOOOkdo:,@
  @
  @
  @
-          'N@
-           @
-         ;K0XO@
-.o.     .M:  0@
-oM.      OXkOXM@
-.XXc'.    ..,k@
-  'ldkOOOOOOx@
- @
+            'N@
+             @
+           ;K0XO@
+  .o.     .M:  0@
+  oM.      OXkOXM@
+  .XXc'.    ..,k@
+    'ldkOOOOOOx  @
+   @
  @
  @
  @
@@ -1870,14 +1870,14 @@ oM.      OXkOXM@
  @
  @
  @
- @
-             @
-            ,W@
-             .@
-.o.        xNxKK@
-oM.       lM.  0@
-.XXc'.    .0No0N@
-  'cdkOOOOkxl,lxOOOO@
+   @
+               @
+              ,W@
+               .@
+  .o.        xNxKK@
+  oM.       lM.  0@
+  .XXc'.    .0No0N@
+    'cdkOOOOkxl,lxOOOO@
  @
  @
  @
@@ -1932,14 +1932,14 @@ lOOOOOOkd@
  @
  @
  @
-      ll c@
-      ,' '@
-      .dOk@
- x,  .Wl 'N@
-cM.  .Mx:cK@
-oM.   .,;;x@
-.N0,    .;N@
-  :x0000Oo@
+        ll c@
+        ,' '@
+        .dOk@
+   x,  .Wl 'N@
+  cM.  .Mx:cK@
+  oM.   .,;;x@
+  .N0,    .;N@
+    :x0000Oo@
  @
  @
 @@
@@ -1952,14 +1952,14 @@ oM.   .,;;x@
  @
  @
  @
-      ,. .@
-      ol l@
-       ;ol@
- :.   X0,:W@
-,M,  .Ml. dW@
-oM    ;xOOXMOOO@
-'Md      .K@
- .kX0kkOKK@
+        ,. .@
+        ol l@
+         ;ol@
+   :.   X0,:W@
+  ,M,  .Ml. dW@
+  oM    ;xOOXMOOO@
+  'Md      .K@
+   .kX0kkOKK@
       @
  @
 @@
@@ -2011,14 +2011,14 @@ lOOOOOOkd@
  @
  @
  @
-            .'cx@
-         oO0kl,@
-        'Wk@
-.o.       :X0@
-oM.         ;M@
-.XXc'.    ..cW@
-  'cdkOOOOOxl@
- @
+              .'cx@
+           oO0kl,@
+          'Wk@
+  .o.       :X0@
+  oM.         ;M@
+  .XXc'.    ..cW@
+    'cdkOOOOOxl  @
+   @
  @
  @
  @
@@ -2031,14 +2031,14 @@ oM.         ;M@
  @
  @
  @
-            .'cx@
-         oO0kl,@
-        'Wk@
-.o.       :X0@
-oM.         ;M@
-.XXc'.    ..cWMx@
-  'cdkOOOOkxl' ckOOO@
- @
+              .'cx@
+           oO0kl,@
+          'Wk@
+  .o.       :X0@
+  oM.         ;M@
+  .XXc'.    ..cWMx@
+    'cdkOOOOkxl' ckOOO@
+   @
  @
  @
  @
@@ -2077,7 +2077,7 @@ lOOOOOkd; ;xOOO@
      ,OX@
        .X@
       .,X@
-lOOOOOkd@
+lOOOOOkd   @
  @
  @
  @
@@ -2090,14 +2090,14 @@ lOOOOOkd@
  @
  @
  @
-            ':oo@
-         oolcccx@
-         oO0kl,@
-        'Wk@
-.o.       :X0@
-oM.         ;M@
-.XXc'.    ..cW@
-  'cdkOOOOOxl@
+              ':oo@
+           oolcccx@
+           oO0kl,@
+          'Wk@
+  .o.       :X0@
+  oM.         ;M@
+  .XXc'.    ..cW@
+    'cdkOOOOOxl   @
  @
  @
  @
@@ -2110,14 +2110,14 @@ oM.         ;M@
  @
  @
  @
-            ':oo@
-         oolcccx@
-         oO0kl,@
-        'Wk@
-.o.       :X0@
-oM.         ;M@
-.XXc'.    ..cWMx@
-  'cdkOOOOkxl' ckOOO@
+              ':oo@
+           oolcccx@
+           oO0kl,@
+          'Wk@
+  .o.       :X0@
+  oM.         ;M@
+  .XXc'.    ..cWMx@
+    'cdkOOOOkxl' ckOOO@
  @
  @
  @
@@ -2157,7 +2157,7 @@ lOOOOOkd; ;xOOO@
      ,OX@
        .X@
       .,X@
-lOOOOOkd@
+lOOOOOkd  @
  @
  @
  @
@@ -2171,15 +2171,15 @@ lOOOOOkd@
  @
  @
  @
-         '@
-         l@
-         l@
-         l@
- .       l@
-'M;      l@
-oM       o@
-,Ml     .X@
- ,OXOkkKK@
+           '@
+           l@
+           l@
+           l@
+   .       l@
+  'M;      l@
+  oM       o@
+  ,Ml     .X@
+   ,OXOkkKK@
      @
  @
 @@
@@ -2191,15 +2191,15 @@ oM       o@
  @
  @
  @
-         '@
-         l@
-         l@
-         l@
- .       l@
-'M;      lM:@
-oM       lMoOOO@
-,Ml     .X@
- ,OXOkkKX@
+           '@
+           l@
+           l@
+           l@
+   .       l@
+  'M;      lM:@
+  oM       lMoOOO@
+  ,Ml     .X@
+   ,OXOkkKX@
      @
  @
 @@
@@ -2254,14 +2254,14 @@ lOOOOx@
  @
  @
  @
-     'cc@
-   .K0:cK@
- .xNM:. :M@
-.Wx.'oOK0@
-cM@
-o@
-;0@
- @
+       'cc@
+     .K0:cK@
+   .xNM:. :M@
+  .Wx.'oOK0@
+  cM@
+  o@
+  ;0@
+   @
 @@
 ـم
 @
@@ -2274,13 +2274,13 @@ o@
  @
  @
  @
-     'cc@
-   .K0:cK@
- .xNM:. cMd@
-.Wx.'oOK0ldOOO@
-cM@
-o@
-;0@
+       'cc@
+     .K0:cK@
+   .xNM:. cMd@
+  .Wx.'oOK0ldOOO@
+  cM@
+  o@
+  ;0@
  @
 @@
 ـمـ
@@ -2334,12 +2334,12 @@ lOOOx,'d0KO@
  @
  @
  @
-     xK@
- k;   .   0@
-cM.       l@
-lM.       oM@
-.XK;.   .lW@
-  ;dO00Oxc@
+       xK@
+   k;   .   0@
+  cM.       l@
+  lM.       oM@
+  .XK;.   .lW@
+    ;dO00Oxc@
  @
  @
 @@
@@ -2354,12 +2354,12 @@ lM.       oM@
  @
  @
  @
-     :@
- :.  ,c   o@
-,M,       xW@
-oM        cMxOOO@
-'Md      .X@
- .kX0kkOK0@
+       :@
+   :.  ,c   o@
+  ,M,       xW@
+  oM        cMxOOO@
+  'Md      .X@
+   .kX0kkOK0@
       @
  @
 @@
@@ -2414,12 +2414,12 @@ lOOOOx@
  @
  @
  @
- .coc@
-.Wd,oW@
-lM'  X@
- ckOOW@
-   .dN@
-.k00@
+   .coc@
+  .Wd,oW@
+  lM'  X@
+   ckOOW@
+     .dN@
+  .k00@
  @
  @
 @@
@@ -2434,12 +2434,12 @@ lM'  X@
  @
  @
  @
-  coc@
-.Wd,dW@
-lM'  X@
- ckOOWNOOO@
-   .dN@
-.k00@
+    coc@
+  .Wd,dW@
+  lM'  X@
+   ckOOWNOOO@
+     .dN@
+  .k00@
  @
  @
 @@
@@ -2493,11 +2493,11 @@ lOO'.oOOOM@
  @
  @
  @
-  .@
- .KNN@
-'Wo .xN@
-cM;..cM@
- ;dOkd@
+    .@
+   .KNN@
+  'Wo .xN@
+  cM;..cM@
+   ;dOkd@
  @
  @
  @
@@ -2513,11 +2513,11 @@ cM;..cM@
  @
  @
  @
-    .:@
- 'xKk0@
-:M:  ;M@
-.XKxOKNk@
-   .  .dOOO@
+      .:@
+   'xKk0@
+  :M:  ;M@
+  .XKxOKNk@
+     .  .dOOO@
  @
  @
  @
@@ -2574,12 +2574,12 @@ lOOOOkdcldkkxl@
  @
  @
  @
-         ,cc@
- dc    dNd:;@
-;M'   'Ml.@
-oM     cxkOM@
-.Wk.     .oW@
- .oKK000K0l@
+           ,cc@
+   dc    dNd:;@
+  ;M'   'Ml.@
+  oM     cxkOM@
+  .Wk.     .oW@
+   .oKK000K0l@
  @
  @
 @@
@@ -2596,11 +2596,11 @@ oM     cxkOM@
  @
  @
  @
-,M@
-oM     ;OONM0OOO@
-.Md       lM@
- .xX0kkOKKx@
-      @
+  ,M@
+  oM     ;OONM0OOO@
+  .Md       lM@
+   .xX0kkOKKx@
+        @
  @
 @@
 ـیـ
@@ -2677,7 +2677,7 @@ lOOOOkd@
  @
  @
  @
-lOO@
+ @
  @
  @
  @
@@ -2697,7 +2697,7 @@ lOO@
  @
  @
  @
-lOO@
+ @
  @
  @
  @
@@ -2717,13 +2717,15 @@ lOO@
  @
  @
  @
-lOO@
+ @
  @
  @
  @
  @
 @@
 ‌
+@
+@
 @
 @
 @

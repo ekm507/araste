@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os
-from sys import argv
+import argparse
 
 # message handling
 # levels ( Error, Warning, Info, Text )
@@ -9,12 +9,53 @@ def message(level, text):
   print( f"{level}:\n{text}" )
 
 # read from flf font file
-font_filename = '/usr/share/araste/fonts/aipara.flf'
+
+parser = argparse.ArgumentParser()
+default_font_name = 'aipara'
+
+parser.add_argument("-f", "--font", help="font path or font name", dest="font", default=default_font_name)
+parser.add_argument("--list", help="list available fonts", dest="get_font_list", action="store_true")
+parser.add_argument("text", help="Text", nargs='*')
+
+args = parser.parse_args()
+
+
+# default dir where fonts are stored
+# there are 2 possible options. root directory or home directory
+root_font_dir = '/usr/share/araste/fonts/'
+usr_font_dir = os.path.expanduser('~') + '/.local/share/araste/fonts/'
+
+font_dir = ''
+if os.path.exists(root_font_dir):
+  font_dir = root_font_dir
+elif os.path.exists(usr_font_dir):
+  font_dir = os.path.realpath(usr_font_dir)
+
+if args.get_font_list == True:
+  fonts_list = os.listdir(font_dir)
+  for font_name in fonts_list:
+    print(font_name.rstrip('.flf'))
+  exit(0)
+
+# if font is a directory:
+if '/' in args.font:
+  font_filename = str(args.font)
+
+else:
+
+  if os.path.exists(font_dir):
+    font_filename = font_dir.rstrip('/') + '/' + args.font.rstrip('.flf') + '.flf'
+
+  else:
+    message('Error', f'font not found!\nis araste installed?')
+    exit(1)
+
 try:
   fontFile = open(font_filename)
   flf_headers = fontFile.readline().split(' ')
 except:
   message("Error", f"{font_filename} is not found")
+  exit(1)
 
 boardh = int(flf_headers[1])
 korsi = int(flf_headers[2])
@@ -99,14 +140,15 @@ def render(text, boardw, boardh, empty_char = ' '):
         print(''.join(line[cursor:]))
 
 
-try:
-  text = argv[1]
-except:
-  text = ""
-
 board_width = os.get_terminal_size().columns
 
-try:
+if len(args.text) > 0:
+  text = ' '.join(args.text)
   render(text, board_width, boardh, ' ')
-except:
-  render("", board_width, boardh, ' ')
+else:
+  while True:
+    try:
+      text = input()
+      render(text, board_width, boardh, ' ')
+    except EOFError:
+      break
