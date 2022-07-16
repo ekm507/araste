@@ -1,3 +1,5 @@
+[english](./README_EN.md)
+
 <div align="center">
   <h1> آراسته </h1>
   <h2> تبدیل نوشته‌های فارسی به هنر اسکی </h2>
