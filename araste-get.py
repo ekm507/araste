@@ -35,7 +35,7 @@ def download_file_from_github(font_name, font_dir):
         exit(0)
     else:
         print(f"Downloading Font: {font_name}")
-        url = f"https://github.com/ekm507/araste/raw/main/fonts/{font_name}.flf"
+        url = f"https://raw.githubusercontent.com/ekm507/araste-fonts/main/Fonts/{font_name}.flf"
         r = requests.get(url)
         if r.status_code != 404:
             with open(f"{font_dir}/{font_name}.flf", "wb") as f:
