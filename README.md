@@ -83,15 +83,17 @@ araste-get FontName
 اگر آراسته را برای کل سیستم نصب کرده‌اید:
 
 ```bash
-$ sudo rm -rf /usr/share/araste
-$ sudo rm /usr/bin/araste
+sudo rm -rf /usr/share/araste
+sudo rm /usr/bin/araste
+sudo rm /usr/bin/araste-get
 ```
 
 اگر آراسته را تنها برای کاربر خودتان نصب کرده‌اید:
 
 ```bash
-$ rm -rf ~/.local/share/araste
-$ rm ~/.local/bin/araste
+rm -rf ~/.local/share/araste
+rm ~/.local/bin/araste
+rm ~/.local/bin/araste-get
 ```
 
 ## برای انجام
