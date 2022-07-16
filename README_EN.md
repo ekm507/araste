@@ -17,10 +17,17 @@ use `-f` switch to choose font
 $ araste 'your persian/arabic text' -f 'fontpath or fontname'
 ```
 
-for now, there are 2 fonts that you can use:
+to get a list of installed fonts:
+
+```bash
+$ araste --list
+```
+
+for now, there are a few fonts that you can use:
 ```
 aipara
 aipara_mini
+zivar
 ```
 
 it can also read text from stdin. so you can do something like this:
