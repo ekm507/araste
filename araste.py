@@ -13,7 +13,7 @@ def message(level, text):
 parser = argparse.ArgumentParser()
 default_font_name = 'aipara'
 
-parser.add_argument("-f", "--font", help="add your custom font path or choose font from [ aipara - aipara-mini ]", dest="font", default=default_font_name)
+parser.add_argument("-f", "--font", help="font path or font name", dest="font", default=default_font_name)
 parser.add_argument("--list", help="list available fonts", dest="get_font_list", action="store_true")
 parser.add_argument("text", help="Text", nargs='*')
 
