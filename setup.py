@@ -6,7 +6,7 @@ with open("README_EN.md") as readme:
 
 setuptools.setup(
     name="araste",
-    version="1.0",
+    version="1.1",
     description="Convert persian text to ascii art",
     long_description=long_description,
     long_description_content_type="text/markdown",
