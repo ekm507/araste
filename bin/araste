@@ -1,0 +1,77 @@
+#!/usr/bin/python3
+import os
+import argparse
+
+# message handling
+# levels ( Error, Warning, Info, Text )
+# note: levels and text with string types
+def message(level, text):
+    print(f"{level}:\n{text}")
+
+
+try:
+    from araste import araste
+except ImportError:
+    message("Error", "Araste is not installed")
+    exit(1)
+
+
+def main():
+    # read from flf font file
+
+    parser = argparse.ArgumentParser()
+    default_font_name = 'aipara'
+
+    parser.add_argument("-f", "--font", help="font path or font name",
+                        dest="font", default=default_font_name)
+    parser.add_argument("--list", help="list available fonts",
+                        dest="get_font_list", action="store_true")
+    parser.add_argument("text", help="Text", nargs='*')
+
+    args = parser.parse_args()
+
+    # default dir where fonts are stored
+    # there are 2 possible options. root directory or home directory
+    fonts_dir = araste.__file__.replace("araste.py", "") + "fonts"
+
+    if args.get_font_list == True:
+        fonts_list = os.listdir(fonts_dir)
+        for font_name in fonts_list:
+            print(font_name.rstrip('.flf'))
+        exit(0)
+
+    # if font is a directory:
+    if '/' in args.font:
+        font_filename = str(args.font)
+
+    else:
+
+        if os.path.exists(fonts_dir):
+            font_filename = fonts_dir.rstrip(
+                '/') + '/' + args.font.replace(".flf", "") + ".flf"
+
+        else:
+            message('Error', f'font not found!\nis araste installed?')
+            exit(1)
+
+    if len(args.text) > 0:
+        text = ' '.join(args.text)
+        try:
+            araste.render(text, args.font, ' ')
+        except FileNotFoundError:
+            message("Error", f"{font_filename} is not found")
+            exit(1)
+    else:
+        while True:
+            try:
+                text = input()
+                araste.render(text, args.font,  ' ')
+            except EOFError:
+                break
+            except FileNotFoundError:
+                message("Error", f"{font_filename} is not found")
+                exit(1)
+
+
+if __name__ == "__main__":
+    main()

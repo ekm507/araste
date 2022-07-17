@@ -5,6 +5,20 @@ import argparse
 import requests
 import pwd
 
+# message handling
+# levels ( Error, Warning, Info, Text )
+# note: levels and text with string types
+def message(level, text):
+    print(f"{level}:\n{text}")
+
+
+try:
+    import araste
+except:
+    message("Error", "Araste is not installed")
+    exit(1)
+
+
 def Main():
     parser = argparse.ArgumentParser(description="Get Fonts For Araste")
     parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara")
@@ -13,21 +27,10 @@ def Main():
     font_dir = get_font_dir()
     download_file_from_github(font_name, font_dir)
 
+
 def get_font_dir():
-    root_font_dir = '/usr/share/araste/fonts/'
-    usr_font_dir = os.path.expanduser('~') + '/.local/share/araste/fonts/'
-    font_dir = ''
-    if os.path.exists(root_font_dir):
-        font_dir = root_font_dir
-        if pwd.getpwuid(os.getuid())[0] != "root":
-            print("Araste is installed as root, so use sudo for installing fonts, Like: sudo araste_get font")
-            exit(1)
-    elif os.path.exists(usr_font_dir):
-        font_dir = os.path.realpath(usr_font_dir)
-    else:
-        print("Font Folder Dosn't Exist, Is Araste Installed?\nIf The Tool Is Not Working Make An Issue On Github: https://github.com/ekm507/araste")
-        exit(1)
-    return font_dir
+    return araste.__file__.replace("__init__.py", "") + "fonts"
+
 
 def download_file_from_github(font_name, font_dir):
     if f"{font_name}.flf" in os.listdir(font_dir):
@@ -45,5 +48,7 @@ def download_file_from_github(font_name, font_dir):
             print(f"{font_name} Font Not Found :(")
             exit(1)
 
+
 if __name__ == "__main__":
+    print(get_font_dir())
     Main()
