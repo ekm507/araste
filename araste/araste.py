@@ -51,11 +51,11 @@ def render(text, font, empty_char=' '):
     for i in range(num_chars):
         persianChars = fontFile.readline()[:-1]
         persionAsciiChars = '\n'.join(
-            [fontFile.readline()[:-2] for i in range(boardh)])[:-1]
+            [fontFile.readline()[:-2] for _ in range(boardh)])[:-1]
         font_glyphs[persianChars] = persionAsciiChars
 
     # generate an empty board
-    board = [[empty_char for i in range(boardw)] for j in range(boardh)]
+    board = [[empty_char for _ in range(boardw)] for _ in range(boardh)]
 
     # rtl cursor
     cursor = boardw - max_block_width
@@ -85,8 +85,8 @@ def render(text, font, empty_char=' '):
 
             # reset the board and cursor
             cursor = boardw - max_block_width
-            board = [[empty_char for i in range(boardw)]
-                     for j in range(boardh)]
+            board = [[empty_char for _ in range(boardw)]
+                     for _ in range(boardh)]
 
         # copy the block of the character into the board
         if readText in font_glyphs:
