@@ -57,19 +57,20 @@ an output with the default font (aipara):
 
 ## Install and Usage
 
-1. for installing you only need to execute following command.
+for installing you only need to execute following command.
 
 ````bash
-bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh)
+pip install araste
 ````
 
-or in oter shells like zsh or fish:
+2. or to build it yourself:
 
-````bash
-curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh | bash
-````
-
-2. you only need Python 3 to use the program. this program has no special dependencies.
+```bash
+git clone 'https://github.com/ekm507/araste/'
+cd araste
+python3 setup.py bdist_wheel
+pip install ./dist/araste-1.1-py3-none-any.whl
+```
 
 ## Instaling Fonts
 For Installing Fonts You Can Use araste-get
@@ -78,24 +79,15 @@ araste-get FontName
 ````
 ## Unistall
 
-to uninstall araste, simply remove it's files.
-
-if you have installed araste for system:
+to uninstall araste, simply use pip.
 
 ```bash
-sudo rm -rf /usr/share/araste
-sudo rm /usr/bin/araste
-sudo rm /usr/bin/araste-get
+pip uninstall araste
 ```
 
-or if you have installed araste for your user only:
+## Creating New Fonts!
 
-```bash
-rm -rf ~/.local/share/araste
-rm ~/.local/bin/araste
-rm ~/.local/bin/araste-get
-```
-
+To get additional fonts for araste or to create your own custom fonts, use tools and manuals in [araste-fonts](https://github.com/ekm507/araste-fonts) repo.
 
 ## Todos
 
