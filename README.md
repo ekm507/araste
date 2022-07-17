@@ -58,18 +58,20 @@ echo 'آراسته' | araste
 ```
 ## نصب و استفاده
 
-1. برای نصب برنامه تنها اجرای این دستور نیاز است.
+آراسته در [PyPI](https://pypi.org/project/araste/) قرار دارد. برای نصب برنامه از مدیربستهٔ پایتون استفاده کنید.
 
 ````bash
-bash <(curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh)
-````
-یا در شل هایی مانند fish :
-````bash
-curl -s https://raw.githubusercontent.com/ekm507/araste/main/installer/install.sh | bash
+pip install araste
 ````
 
+یا اگر می‌خواهید خودتان آراسته را بیلد کنید:
 
-2. از برنامهٔ آراسته استفاده کنید! برای استفاده نیاز به پایتون نسخهٔ ۳ دارید. این برنامه وابستگی به بستهٔ خاصی ندارد و با بسته های پیش‌فرض پایتون کار می‌کند.
+```bash
+git clone 'https://github.com/ekm507/araste/'
+cd araste
+python3 setup.py bdist_wheel
+pip install ./dist/araste-1.1-py3-none-any.whl
+```
 
 ## نصب قلم‌های بیشتر
 برای نصب فونت‌ها می‌توانید از araste-get استفاده کنید.
@@ -78,23 +80,11 @@ araste-get FontName
 ````
 
 ## حذف برنامه
-برای پاک کردن برنامه از روی سیستم، کافیست فایل‌های آن را پاک کنید.
+برای پاک کردن برنامه از روی سیستم، می‌توانید از pip استفاده کنید.
 
-اگر آراسته را برای کل سیستم نصب کرده‌اید:
-
-```bash
-sudo rm -rf /usr/share/araste
-sudo rm /usr/bin/araste
-sudo rm /usr/bin/araste-get
-```
-
-اگر آراسته را تنها برای کاربر خودتان نصب کرده‌اید:
-
-```bash
-rm -rf ~/.local/share/araste
-rm ~/.local/bin/araste
-rm ~/.local/bin/araste-get
-```
+````bash
+araste-get FontName
+````
 
 ## ساخت قلم
 
