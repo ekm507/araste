@@ -1,0 +1,26 @@
+# Maintainer: Erfan Kheyrollahi <ekm507@gmail.com>
+pkgname='araste'
+pkgver=1.1
+pkgrel=1
+pkgdesc="Making ascii-art out of Persian/Arabic text"
+arch=('any')
+url="https://github.com/ekm507/araste"
+license=('AGPLv3')
+depends=('python')
+makedepends=('git')
+install='beauty.install'
+source=('araste::git+https://github.com/ekm507/araste.git')
+md5sums=('SKIP')
+
+
+package() {
+        cd "$pkgname"
+        mkdir -p $pkgdir/usr/bin/
+        mkdir -p $pkgdir/usr/share/araste/fonts/
+        cp bin/araste $pkgdir/usr/bin/araste
+        cp bin/araste-get $pkgdir/usr/bin/araste-get
+        chmod +x $pkgdir/usr/bin/araste
+        chmod +x $pkgdir/usr/bin/araste-get
+
+        cp araste/fonts/* $pkgdir/usr/share/araste/fonts/
+}
