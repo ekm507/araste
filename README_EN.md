@@ -28,6 +28,7 @@ for now, there are a few fonts that you can use:
 aipara
 aipara_mini
 zivar
+nima
 ```
 
 it can also read text from stdin. so you can do something like this:
