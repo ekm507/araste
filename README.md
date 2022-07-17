@@ -83,7 +83,7 @@ araste-get FontName
 برای پاک کردن برنامه از روی سیستم، می‌توانید از pip استفاده کنید.
 
 ````bash
-araste-get FontName
+pip uninstall araste
 ````
 
 ## ساخت قلم
