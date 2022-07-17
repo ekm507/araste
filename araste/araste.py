@@ -22,8 +22,15 @@ def copyboard(blockstr, cursor, board, korsi):
 def render(text, font, empty_char=' '):
 
     fonts_dir = __file__.replace("araste.py", "") + "fonts"
-    font_filename = fonts_dir.rstrip(
-        '/') + '/' + font.replace(".flf", "") + ".flf"
+
+    # if font is a directory:
+    if '/' in font:
+        font_filename = os.path.realpath(str(font))
+    else:
+
+        font_filename = fonts_dir.rstrip(
+            '/') + '/' + font.replace(".flf", "") + ".flf"
+
     try:
         fontFile = open(font_filename)
         flf_headers = fontFile.readline().split(' ')

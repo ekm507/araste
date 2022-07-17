@@ -34,19 +34,6 @@ def main():
             print(font_name.rstrip('.flf'))
         exit(0)
 
-    # if font is a directory:
-    if '/' in args.font:
-        font_filename = str(args.font)
-
-    else:
-
-        if os.path.exists(fonts_dir):
-            font_filename = fonts_dir.rstrip(
-                '/') + '/' + args.font.replace(".flf", "") + ".flf"
-
-        else:
-            message('Error', f'font not found!\nis araste installed?')
-            exit(1)
 
     if len(args.text) > 0:
         text = ' '.join(args.text)
