@@ -77,7 +77,7 @@ pip install ./dist/araste-1.1-py3-none-any.whl
 ## نصب قلم‌های بیشتر
 برای نصب فونت‌ها می‌توانید از araste-get استفاده کنید.
 ````bash
-araste-get FontName
+araste-get install FontName
 ````
 
 ## حذف برنامه
