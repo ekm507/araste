@@ -1,5 +1,4 @@
 import setuptools
-import araste
 
 with open("README_EN.md") as readme:
     long_description = readme.read()
