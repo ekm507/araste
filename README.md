@@ -33,6 +33,7 @@ araste --list
 aipara
 aipara_mini
 zivar
+nima
 ```
 
 برای راهنما :
