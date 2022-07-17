@@ -3,14 +3,7 @@
 import os
 import argparse
 import requests
-import pwd
-
-# message handling
-# levels ( Error, Warning, Info, Text )
-# note: levels and text with string types
-def message(level, text):
-    print(f"{level}:\n{text}")
-
+from utils.message import message
 
 try:
     import araste

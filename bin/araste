@@ -1,13 +1,7 @@
 #!/usr/bin/python3
 import os
 import argparse
-
-# message handling
-# levels ( Error, Warning, Info, Text )
-# note: levels and text with string types
-def message(level, text):
-    print(f"{level}:\n{text}")
-
+from utils.message import message
 
 try:
     from araste import araste
