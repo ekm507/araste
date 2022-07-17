@@ -85,6 +85,9 @@ to uninstall araste, simply use pip.
 pip uninstall araste
 ```
 
+## Creating New Fonts!
+
+To get additional fonts for araste or to create your own custom fonts, use tools and manuals in [araste-fonts](https://github.com/ekm507/araste-fonts) repo.
 
 ## Todos
 
