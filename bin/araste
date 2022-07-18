@@ -48,7 +48,7 @@ def main():
         try:
             araste.render(text, args.font, ' ', rainbow = args.rainbow)
         except FileNotFoundError:
-            message("Error", f"{font_filename} is not found")
+            message("Error", f"{args.font} is not found")
             exit(1)
     else:
         while True:
@@ -58,7 +58,7 @@ def main():
             except EOFError:
                 break
             except FileNotFoundError:
-                message("Error", f"{font_filename} is not found")
+                message("Error", f"{args.font} is not found")
                 exit(1)
 
 
