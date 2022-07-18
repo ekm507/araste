@@ -3,6 +3,8 @@ import os
 
 # copy a block into the board
 
+rainbow_colors = ['\33[31m', '\33[33m', '\33[93m', '\33[32m', '\33[36m', '\33[34m', '\33[35m']
+end_color = '\33[0m'
 
 def copyboard(blockstr, cursor, board, korsi):
     block = [list(line) for line in blockstr.split('\n')]
@@ -18,8 +20,15 @@ def copyboard(blockstr, cursor, board, korsi):
 
 # convert text into ascii art and print
 
+def print_rainbow(text, offset=0):
+    for i in range(len(text)):
+        if text[i] != ' ':
+            print(rainbow_colors[(i + offset) % len(rainbow_colors)] + text[i], sep='', end='')
+        else:
+            print(text[i], end='', sep='')
+    print(end_color)
 
-def render(text, font, empty_char=' '):
+def render(text, font, empty_char=' ', rainbow=False):
 
     fonts_dir = __file__.replace("araste.py", "") + "fonts"
 
@@ -87,8 +96,11 @@ def render(text, font, empty_char=' '):
         if cursor < max_block_width or text[i] in ['\n', '\r']:
 
             # print the board
-            for line in board:
-                print(''.join(line[cursor:]))
+            for i, line in enumerate(board):
+                if rainbow:
+                    print_rainbow(''.join(line[cursor:]), offset=0)
+                else:
+                    print(''.join(line[cursor:]))
 
             # reset the board and cursor
             cursor = boardw - max_block_width
@@ -102,5 +114,8 @@ def render(text, font, empty_char=' '):
             cursor -= lenc
 
     # print the remaining of the board
-    for line in board:
-        print(''.join(line[cursor:]))
+    for i, line in enumerate(board):
+        if rainbow:
+            print_rainbow(''.join(line[cursor:]), offset=0)
+        else:
+            print(''.join(line[cursor:]))
