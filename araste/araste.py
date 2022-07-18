@@ -69,12 +69,20 @@ def render(text, font, empty_char=' ', rainbow=False):
         persionAsciiChars = '\n'.join(
             [fontFile.readline()[:-2] for _ in range(boardh)])[:-1]
         font_glyphs[persianChars] = persionAsciiChars
+    
+    # get width of each character
+    glyphs_width = {}
+    for character in font_glyphs.keys():
+        # max_line_width = max([len(line) for line in font_glyphs[character].split('\n')])
+        max_line_width = len(font_glyphs[character].split('\n')[korsi])
+        glyphs_width[character] = max_line_width
+
 
     # generate an empty board
     board = [[empty_char for _ in range(boardw)] for _ in range(boardh)]
 
     # rtl cursor
-    cursor = boardw - max_block_width
+    cursor = boardw
 
     # add space to beginning and end of text to make it easier to handle
     text = ' ' + text + ' '
@@ -91,9 +99,17 @@ def render(text, font, empty_char=' ', rainbow=False):
             if text[i-1] not in after_n:
                 readText = 'ـ' + readText
 
+
+        # get distance cursor should move
+        if readText in glyphs_width:
+            next_width = glyphs_width[readText]
+        else:
+            next_width = 0
+        
         # check if you need a newline
         # if cursor has reached the end of the board or if character is a newline character
-        if cursor < max_block_width or text[i] in ['\n', '\r']:
+
+        if cursor <= next_width or text[i] in ['\n', '\r']:
 
             # print the board
             for i, line in enumerate(board):
@@ -103,15 +119,17 @@ def render(text, font, empty_char=' ', rainbow=False):
                     print(''.join(line[cursor:]))
 
             # reset the board and cursor
-            cursor = boardw - max_block_width
+            cursor = boardw
             board = [[empty_char for _ in range(boardw)]
                      for _ in range(boardh)]
 
         # copy the block of the character into the board
         if readText in font_glyphs:
+            
             board, lenc = copyboard(
                 font_glyphs[readText], cursor, board, korsi)
-            cursor -= lenc
+                
+            cursor -= next_width
 
     # print the remaining of the board
     for i, line in enumerate(board):
