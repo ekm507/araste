@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 import os
 
+
+
 # copy a block into the board
-
-rainbow_colors = ['\33[31m', '\33[33m', '\33[93m', '\33[32m', '\33[36m', '\33[34m', '\33[35m']
-end_color = '\33[0m'
-
 def copyboard(blockstr, cursor, board, korsi):
     block = [list(line) for line in blockstr.split('\n')]
 
@@ -18,8 +16,14 @@ def copyboard(blockstr, cursor, board, korsi):
 
     return board, len(block[korsi])
 
-# convert text into ascii art and print
 
+# list of colors for rainbow. ansi escape codes.
+rainbow_colors = ['\33[31m', '\33[33m', '\33[93m', '\33[32m', '\33[36m', '\33[34m', '\33[35m']
+
+# ansi escape code for end of color
+end_color = '\33[0m'
+
+# print colorful text (ansi terminal only)
 def print_rainbow(text, offset=0):
     for i in range(len(text)):
         if text[i] != ' ':
@@ -28,24 +32,28 @@ def print_rainbow(text, offset=0):
             print(text[i], end='', sep='')
     print(end_color)
 
+# convert text into ascii art and print
 def render(text, font, empty_char=' ', rainbow=False):
 
+    # get directory where fonts are stored
     fonts_dir = __file__.replace("araste.py", "") + "fonts"
 
+    # get font file name
     # if font is a directory:
     if '/' in font:
         font_filename = os.path.realpath(str(font))
     else:
-
         font_filename = fonts_dir.rstrip(
             '/') + '/' + font.replace(".flf", "") + ".flf"
 
+    # read the font
     try:
         fontFile = open(font_filename)
         flf_headers = fontFile.readline().split(' ')
     except:
         raise FileNotFoundError
 
+    # get font headers
     boardw = os.get_terminal_size().columns
     boardh = int(flf_headers[1])
     korsi = int(flf_headers[2])
@@ -62,6 +70,7 @@ def render(text, font, empty_char=' ', rainbow=False):
     # list of characters in persian alphabet
     fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ' + '\u200d')
 
+    # get font characters
     # font glyphs is character to block
     font_glyphs = dict()
     for i in range(num_chars):
@@ -87,7 +96,7 @@ def render(text, font, empty_char=' ', rainbow=False):
     # add space to beginning and end of text to make it easier to handle
     text = ' ' + text + ' '
 
-    # read characters from text
+    # read characters from text and render them and print the result
     for i in range(1, len(text) - 1):
 
         # find appropriate variation of character
@@ -108,11 +117,11 @@ def render(text, font, empty_char=' ', rainbow=False):
         
         # check if you need a newline
         # if cursor has reached the end of the board or if character is a newline character
-
         if cursor <= next_width or text[i] in ['\n', '\r']:
 
             # print the board
             for i, line in enumerate(board):
+                # if rainbow is enabled, print rainbow colored text
                 if rainbow:
                     print_rainbow(''.join(line[cursor:]), offset=0)
                 else:
@@ -129,11 +138,13 @@ def render(text, font, empty_char=' ', rainbow=False):
             board, lenc = copyboard(
                 font_glyphs[readText], cursor, board, korsi)
                 
+            # move the cursor by the width of the character to the left
             cursor -= next_width
 
     # print the remaining of the board
     for i, line in enumerate(board):
         if rainbow:
+            # if rainbow is enabled, print rainbow colored text
             print_rainbow(''.join(line[cursor:]), offset=0)
         else:
             print(''.join(line[cursor:]))
