@@ -26,6 +26,8 @@ def main():
                         dest="font", default=default_font_name)
     parser.add_argument("--list", help="list available fonts",
                         dest="get_font_list", action="store_true")
+    parser.add_argument("--rainbow", help="print output in rainbow colors",
+                        dest="rainbow", action="store_true")
     parser.add_argument("text", help="Text", nargs='*')
 
     args = parser.parse_args()
@@ -44,7 +46,7 @@ def main():
     if len(args.text) > 0:
         text = ' '.join(args.text)
         try:
-            araste.render(text, args.font, ' ')
+            araste.render(text, args.font, ' ', rainbow = args.rainbow)
         except FileNotFoundError:
             message("Error", f"{font_filename} is not found")
             exit(1)
@@ -52,7 +54,7 @@ def main():
         while True:
             try:
                 text = input()
-                araste.render(text, args.font,  ' ')
+                araste.render(text, args.font,  ' ', rainbow = args.rainbow)
             except EOFError:
                 break
             except FileNotFoundError:
