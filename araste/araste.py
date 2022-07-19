@@ -148,6 +148,6 @@ def render(text, font, empty_char=' ', rainbow=False):
     for i, line in enumerate(board):
         if rainbow:
             # if rainbow is enabled, print rainbow colored text
-            print_rainbow(''.join(line[cursor:]), offset=0)
+            print_rainbow(' ' * cursor + ''.join(line[cursor:]), offset=0)
         else:
-            print(''.join(line[cursor:]))
+            print(' ' * cursor + ''.join(line[cursor:]))
