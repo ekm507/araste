@@ -81,6 +81,7 @@ pip install ./dist/araste-1.1-py3-none-any.whl
 ````bash
 araste-get install FontName
 ````
+[قلم های قابل نصب](https://github.com/ekm507/araste-fonts/blob/main/Fonts.md)
 
 ## حذف برنامه
 برای پاک کردن برنامه از روی سیستم، می‌توانید از pip استفاده کنید.
