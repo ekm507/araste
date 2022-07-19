@@ -10,6 +10,9 @@ def copyboard(blockstr, cursor, board, korsi):
     for widthChars in range(len(block)):
         lsize = len(block[widthChars])
         ksize = len(block[korsi])
+        if cursor - ksize + lsize > len(board[0]):
+            lsize = - cursor + ksize + len(board[0])
+
         for j in range(lsize):
             # print(cursor - ksize)
             board[widthChars][cursor - ksize + j] = block[widthChars][j]
