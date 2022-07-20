@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from math import floor
 import os
 
 
@@ -35,8 +36,28 @@ def print_rainbow(text, offset=0):
             print(text[i], end='', sep='')
     print(end_color)
 
+def print_line(line, rainbow = False, offset = 0):
+    if rainbow:
+        print_rainbow(line, offset=offset)
+    else:
+        print(line)
+
+def print_board(board, cursor, rainbow = False, alignment = 'l'):
+    for i, line in enumerate(board):
+        if alignment == 'l':
+            aligned_line = ''.join(line[cursor:])
+        elif alignment == 'r':
+            aligned_line = ' ' * cursor + ''.join(line[cursor:])
+        elif alignment == 'c':
+            num_spaces_left = cursor // 2
+            num_spaces_right = cursor - num_spaces_left
+            aligned_line = ' ' * num_spaces_left + ''.join(line[cursor:]) + ' ' * num_spaces_right
+
+        print_line(''.join(aligned_line), rainbow=rainbow, offset = i)
+    print()
+
 # convert text into ascii art and print
-def render(text, font, empty_char=' ', rainbow=False):
+def render(text, font, empty_char=' ', rainbow=False, alignment='l'):
 
     # get directory where fonts are stored
     fonts_dir = __file__.replace("araste.py", "") + "fonts"
@@ -122,13 +143,7 @@ def render(text, font, empty_char=' ', rainbow=False):
         # if cursor has reached the end of the board or if character is a newline character
         if cursor <= next_width or text[i] in ['\n', '\r']:
 
-            # print the board
-            for i, line in enumerate(board):
-                # if rainbow is enabled, print rainbow colored text
-                if rainbow:
-                    print_rainbow(''.join(line[cursor:]), offset=0)
-                else:
-                    print(''.join(line[cursor:]))
+            print_board(board, cursor, rainbow = rainbow, alignment = alignment)
 
             # reset the board and cursor
             cursor = boardw
@@ -145,9 +160,4 @@ def render(text, font, empty_char=' ', rainbow=False):
             cursor -= next_width
 
     # print the remaining of the board
-    for i, line in enumerate(board):
-        if rainbow:
-            # if rainbow is enabled, print rainbow colored text
-            print_rainbow(' ' * cursor + ''.join(line[cursor:]), offset=0)
-        else:
-            print(' ' * cursor + ''.join(line[cursor:]))
+    print_board(board, cursor, rainbow = rainbow, alignment = alignment)
