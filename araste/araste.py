@@ -3,9 +3,8 @@ from math import floor
 import os
 
 
-
 # copy a block into the board
-def copyboard(blockstr, cursor, board, korsi):
+def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
     block = [list(line) for line in blockstr.split('\n')]
 
     for widthChars in range(len(block)):
@@ -27,8 +26,9 @@ rainbow_colors = ['\33[31m', '\33[33m', '\33[93m', '\33[32m', '\33[36m', '\33[34
 # ansi escape code for end of color
 end_color = '\33[0m'
 
+
 # print colorful text (ansi terminal only)
-def print_rainbow(text, offset=0):
+def print_rainbow(text: str, offset: int = 0) -> None:
     for i in range(len(text)):
         if text[i] != ' ':
             print(rainbow_colors[(i + offset) % len(rainbow_colors)] + text[i], sep='', end='')
@@ -36,13 +36,20 @@ def print_rainbow(text, offset=0):
             print(text[i], end='', sep='')
     print(end_color)
 
-def print_line(line, rainbow = False, offset = 0):
+
+def print_line(line: str, rainbow: bool = False, offset: int = 0) -> None:
     if rainbow:
         print_rainbow(line, offset=offset)
     else:
         print(line)
 
-def print_board(board, cursor, rainbow = False, alignment = 'l'):
+
+def print_board(
+    board: list,
+    cursor: int, 
+    rainbow: bool = False, 
+    alignment: str = 'l'
+) -> None:
     for i, line in enumerate(board):
         if alignment == 'l':
             aligned_line = ''.join(line[cursor:])
@@ -53,11 +60,18 @@ def print_board(board, cursor, rainbow = False, alignment = 'l'):
             num_spaces_right = cursor - num_spaces_left
             aligned_line = ' ' * num_spaces_left + ''.join(line[cursor:]) + ' ' * num_spaces_right
 
-        print_line(''.join(aligned_line), rainbow=rainbow, offset = i)
+        print_line(''.join(aligned_line), rainbow=rainbow, offset=i)
     print()
 
+
 # convert text into ascii art and print
-def render(text, font, empty_char=' ', rainbow=False, alignment='l'):
+def render(
+    text: str, 
+    font: str, 
+    empty_char: str = ' ', 
+    rainbow: bool = False, 
+    alignment: str ='l'
+) -> None:
 
     # get directory where fonts are stored
     fonts_dir = __file__.replace("araste.py", "") + "fonts"
@@ -143,7 +157,7 @@ def render(text, font, empty_char=' ', rainbow=False, alignment='l'):
         # if cursor has reached the end of the board or if character is a newline character
         if cursor <= next_width or text[i] in ['\n', '\r']:
 
-            print_board(board, cursor, rainbow = rainbow, alignment = alignment)
+            print_board(board, cursor, rainbow=rainbow, alignment=alignment)
 
             # reset the board and cursor
             cursor = boardw
@@ -160,4 +174,4 @@ def render(text, font, empty_char=' ', rainbow=False, alignment='l'):
             cursor -= next_width
 
     # print the remaining of the board
-    print_board(board, cursor, rainbow = rainbow, alignment = alignment)
+    print_board(board, cursor, rainbow=rainbow, alignment=alignment)
