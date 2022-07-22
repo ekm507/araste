@@ -72,6 +72,7 @@ pip install araste
 یا اگر می‌خواهید خودتان آراسته را بیلد کنید:
 
 ```bash
+pip install setuptools wheel
 git clone 'https://github.com/ekm507/araste/'
 cd araste
 python3 setup.py bdist_wheel
