@@ -70,7 +70,7 @@ pip install araste
 git clone 'https://github.com/ekm507/araste/'
 cd araste
 python3 setup.py bdist_wheel
-pip install ./dist/araste-1.1-py3-none-any.whl
+pip install ./dist/araste-1.2-py3-none-any.whl
 ```
 
 ## Instaling Fonts
