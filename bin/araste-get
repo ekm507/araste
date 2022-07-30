@@ -8,6 +8,8 @@ import pwd
 # message handling
 # levels ( Error, Warning, Info, Text )
 # note: levels and text with string types
+
+
 def message(level, text):
     print(f"{level}:\n{text}")
 
@@ -19,28 +21,30 @@ except:
     exit(1)
 
 
-def Main():
+def main():
     parser = argparse.ArgumentParser(description="Get Fonts For Araste")
-    parser.add_argument("Command", type=str, help="install, remove, update")
+    parser.add_argument("command", type=str, help="install, remove, update")
     parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara")
-    parser.add_argument("-r", "--repository", type=str, help="repo to get fonts from. (github_username/repository)", default="ekm507/araste-fonts")
+    parser.add_argument("-r", "--repository", type=str,
+                        help="repo to get fonts from. (github_username/repository)", default="ekm507/araste-fonts")
     args = parser.parse_args()
     font_name = args.Font_name
-    Command = args.Command
+    command = args.command
     font_dir = get_font_dir()
-    if Command == "install" or Command == "Install":
+    if command == "install" or command == "Install":
         download_font(font_name, font_dir, repository=args.repository)
-    elif Command == "remove" or Command == "Remove":
+    elif command == "remove" or command == "Remove":
         remove_font(font_name, font_dir)
-    elif Command == "update" or Command == "Update":
+    elif command == "update" or command == "Update":
         download_font(font_name, font_dir, repository=args.repository, update=True)
     else:
-        print(f"Invalid Command: {Command}")
+        print(f"Invalid command: {command}")
         exit(1)
 
 
 def get_font_dir():
     return araste.__file__.replace("__init__.py", "") + "fonts"
+
 
 def remove_font(font_name, font_dir):
     if f"{font_name}.flf" in os.listdir(font_dir):
@@ -50,11 +54,12 @@ def remove_font(font_name, font_dir):
         print(f"{font_name} Font Not Found :(")
         exit(1)
 
+
 def download_font(font_name, font_dir, repository="ekm507/araste-fonts", update=False):
-    if f"{font_name}.flf" in os.listdir(font_dir) and update == False:
+    if f"{font_name}.flf" in os.listdir(font_dir) and update is False:
         print(f"{font_name} already exists.")
         exit(0)
-    elif f"{font_name}.flf" not in os.listdir(font_dir) and update == True:
+    elif f"{font_name}.flf" not in os.listdir(font_dir) and update is True:
         print(f"{font_name} Is Not installed.")
         exit(1)
     else:
@@ -71,4 +76,4 @@ def download_font(font_name, font_dir, repository="ekm507/araste-fonts", update=
 
 
 if __name__ == "__main__":
-    Main()
+    main()
