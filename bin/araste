@@ -2,9 +2,12 @@
 import os
 import argparse
 
+
 # message handling
 # levels ( Error, Warning, Info, Text )
 # note: levels and text with string types
+
+
 def message(level, text):
     print(f"{level}:\n{text}")
 
@@ -37,17 +40,16 @@ def main():
     # there are 2 possible options. root directory or home directory
     fonts_dir = araste.__file__.replace("araste.py", "") + "fonts"
 
-    if args.get_font_list == True:
+    if args.get_font_list:
         fonts_list = os.listdir(fonts_dir)
         for font_name in fonts_list:
             print(font_name.rstrip('.flf'))
         exit(0)
 
-
     if len(args.text) > 0:
         text = ' '.join(args.text)
         try:
-            araste.render(text, args.font, ' ', rainbow = args.rainbow, alignment = args.alignment)
+            araste.render(text, args.font, ' ', rainbow=args.rainbow, alignment=args.alignment)
         except FileNotFoundError:
             message("Error", f"{args.font} is not found")
             exit(1)
@@ -55,7 +57,7 @@ def main():
         while True:
             try:
                 text = input()
-                araste.render(text, args.font,  ' ', rainbow = args.rainbow, alignment = args.alignment)
+                araste.render(text, args.font, ' ', rainbow=args.rainbow, alignment=args.alignment)
             except EOFError:
                 break
             except FileNotFoundError:
