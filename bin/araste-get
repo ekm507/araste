@@ -24,7 +24,7 @@ except:
 def main():
     parser = argparse.ArgumentParser(description="Get Fonts For Araste")
     parser.add_argument("command", type=str, help="install, remove, update")
-    parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara")
+    parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara", nargs="?")
     parser.add_argument("-r", "--repository", type=str,
                         help="repo to get fonts from. (github_username/repository)", default="ekm507/araste-fonts")
     args = parser.parse_args()
@@ -37,9 +37,12 @@ def main():
         remove_font(font_name, font_dir)
     elif command == "update" or command == "Update":
         download_font(font_name, font_dir, repository=args.repository, update=True)
+    elif command == "list" or command == "List":
+        list_fonts(repository=args.repository)
     else:
         print(f"Invalid command: {command}")
         exit(1)
+
 
 
 def get_font_dir():
@@ -74,6 +77,11 @@ def download_font(font_name, font_dir, repository="ekm507/araste-fonts", update=
             print(f"{font_name} Font Not Found :(")
             exit(1)
 
+
+def list_fonts(repository="ekm507/araste-fonts"):
+    font_page_url = f'https://raw.githubusercontent.com/{repository}/main/Fonts.md'
+    font_page = requests.get(font_page_url)
+    print(font_page.text)
 
 if __name__ == "__main__":
     main()
