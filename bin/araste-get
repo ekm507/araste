@@ -79,7 +79,7 @@ def download_font(font_name, font_dir, repository="ekm507/araste-fonts", update=
 
 
 def list_fonts(repository="ekm507/araste-fonts"):
-    font_page_url = f'https://raw.githubusercontent.com/{repository}/main/Fonts.md'
+    font_page_url = f'https://raw.githubusercontent.com/{repository}/main/Fonts/list.md'
     font_page = requests.get(font_page_url)
     print(font_page.text)
 
