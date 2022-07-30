@@ -70,7 +70,7 @@ def render(
     font: str, 
     empty_char: str = ' ', 
     rainbow: bool = False, 
-    alignment: str ='l'
+    alignment: str = 'l'
 ) -> None:
 
     # get directory where fonts are stored
@@ -86,8 +86,8 @@ def render(
 
     # read the font
     try:
-        fontFile = open(font_filename)
-        flf_headers = fontFile.readline().split(' ')
+        fontfile = open(font_filename)
+        flf_headers = fontfile.readline().split(' ')
     except:
         raise FileNotFoundError
 
@@ -99,7 +99,7 @@ def render(
     comment_lines = int(flf_headers[5])
     num_chars = int(flf_headers[8])
     for _ in range(comment_lines):
-        fontFile.readline()
+        fontfile.readline()
 
     # characters which need character to be separated if it is after them
     after_n = list("()«»رذزدژآاءوؤ!؟?\n. ‌،:؛")
@@ -112,10 +112,10 @@ def render(
     # font glyphs is character to block
     font_glyphs = dict()
     for i in range(num_chars):
-        persianChars = fontFile.readline()[:-1]
-        persionAsciiChars = '\n'.join(
-            [fontFile.readline()[:-2] for _ in range(boardh)])[:-1]
-        font_glyphs[persianChars] = persionAsciiChars
+        persianchars = fontfile.readline()[:-1]
+        persianasciichars = '\n'.join(
+            [fontfile.readline()[:-2] for _ in range(boardh)])[:-1]
+        font_glyphs[persianchars] = persianasciichars
     
     # get width of each character
     glyphs_width = {}
@@ -123,7 +123,6 @@ def render(
         # max_line_width = max([len(line) for line in font_glyphs[character].split('\n')])
         max_line_width = len(font_glyphs[character].split('\n')[korsi])
         glyphs_width[character] = max_line_width
-
 
     # generate an empty board
     board = [[empty_char for _ in range(boardw)] for _ in range(boardh)]
@@ -138,18 +137,17 @@ def render(
     for i in range(1, len(text) - 1):
 
         # find appropriate variation of character
-        readText = text[i]
+        readtext = text[i]
         if text[i] in fa:
             if text[i+1] not in before_n:
                 if text[i] not in after_n:
-                    readText = readText + 'ـ'
+                    readtext = readtext + 'ـ'
             if text[i-1] not in after_n:
-                readText = 'ـ' + readText
-
+                readtext = 'ـ' + readtext
 
         # get distance cursor should move
-        if readText in glyphs_width:
-            next_width = glyphs_width[readText]
+        if readtext in glyphs_width:
+            next_width = glyphs_width[readtext]
         else:
             next_width = 0
         
@@ -165,10 +163,10 @@ def render(
                      for _ in range(boardh)]
 
         # copy the block of the character into the board
-        if readText in font_glyphs:
+        if readtext in font_glyphs:
             
             board, lenc = copyboard(
-                font_glyphs[readText], cursor, board, korsi)
+                font_glyphs[readtext], cursor, board, korsi)
                 
             # move the cursor by the width of the character to the left
             cursor -= next_width
