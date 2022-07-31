@@ -3,7 +3,6 @@
 import os
 import argparse
 import requests
-import pwd
 
 # message handling
 # levels ( Error, Warning, Info, Text )
@@ -24,19 +23,19 @@ except:
 def main():
     parser = argparse.ArgumentParser(description="Get Fonts For Araste")
     parser.add_argument("command", type=str, help="install, remove, update")
-    parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara", nargs="?")
+    parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara", nargs="*")
     parser.add_argument("-r", "--repository", type=str,
                         help="repo to get fonts from. (github_username/repository)", default="ekm507/araste-fonts")
     args = parser.parse_args()
-    font_name = args.Font_name
+    fonts_names = args.Font_name
     command = args.command
     font_dir = get_font_dir()
     if command == "install" or command == "Install":
-        download_font(font_name, font_dir, repository=args.repository)
+        download_font(fonts_names, font_dir, repository=args.repository)
     elif command == "remove" or command == "Remove":
-        remove_font(font_name, font_dir)
+        remove_font(fonts_names, font_dir)
     elif command == "update" or command == "Update":
-        download_font(font_name, font_dir, repository=args.repository, update=True)
+        download_font(fonts_names, font_dir, repository=args.repository, update=True)
     elif command == "list" or command == "List":
         list_fonts(repository=args.repository)
     else:
@@ -49,33 +48,47 @@ def get_font_dir():
     return araste.__file__.replace("__init__.py", "") + "fonts"
 
 
-def remove_font(font_name, font_dir):
-    if f"{font_name}.flf" in os.listdir(font_dir):
-        os.remove(f"{font_dir}/{font_name}.flf")
-        print(f"{font_name} Font Removed :)")
-    else:
-        print(f"{font_name} Font Not Found :(")
-        exit(1)
-
-
-def download_font(font_name, font_dir, repository="ekm507/araste-fonts", update=False):
-    if f"{font_name}.flf" in os.listdir(font_dir) and update is False:
-        print(f"{font_name} already exists.")
-        exit(0)
-    elif f"{font_name}.flf" not in os.listdir(font_dir) and update is True:
-        print(f"{font_name} Is Not installed.")
-        exit(1)
-    else:
-        print(f"Downloading Font: {font_name}")
-        url = f"https://raw.githubusercontent.com/{repository}/main/Fonts/{font_name}.flf"
-        r = requests.get(url)
-        if r.status_code != 404:
-            with open(f"{font_dir}/{font_name}.flf", "wb") as f:
-                f.write(r.content)
-            print(f"{font_name} Font Downloaded :)")
+def remove_font(fonts_names, font_dir):
+    error = False
+    for font in fonts_names:
+        if f"{font}.flf" in os.listdir(font_dir):
+            os.remove(f"{font_dir}/{font}.flf")
+            print(f"{font} font removed.")
         else:
-            print(f"{font_name} Font Not Found :(")
-            exit(1)
+            print(f"{font} font not found.")
+            error = True
+    if error:
+        exit(1)
+    exit(0)
+
+
+def download_font(fonts_names, font_dir, repository="ekm507/araste-fonts", update=False):
+    error = False
+    for font in fonts_names:
+        if f"{font}.flf" in os.listdir(font_dir) and not update:
+            print(f"{font} already exists.")
+            continue
+        elif f"{font}.flf" not in os.listdir(font_dir) and update:
+            print(f"{font} is not installed")
+            error = True
+            continue
+        else:
+            print(f"Downloading Font: {font}")
+            url = f"https://raw.githubusercontent.com/{repository}/main/Fonts/{font}.flf"
+            r = requests.get(url)
+            if r.status_code != 404:
+                with open(f"{font_dir}/{font}.flf", "wb") as f:
+                    f.write(r.content)
+                print(f"{font} Font Downloaded :)")
+                continue
+            else:
+                print(f"{font} Font Not Found :(")
+                error = True
+                continue
+    if not error:
+        exit(1)
+    exit(0)
+
 
 
 def list_fonts(repository="ekm507/araste-fonts"):
