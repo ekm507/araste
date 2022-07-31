@@ -29,28 +29,37 @@ end_color = '\33[0m'
 
 # print colorful text (ansi terminal only)
 def print_rainbow(text: str, offset: int = 0) -> None:
+    
+    output = ''
     for i in range(len(text)):
         if text[i] != ' ':
-            print(rainbow_colors[(i + offset) % len(rainbow_colors)] + text[i], sep='', end='')
+            output += rainbow_colors[(i + offset) % len(rainbow_colors)] + text[i]
         else:
-            print(text[i], end='', sep='')
-    print(end_color)
+            output += ' '
+    output += end_color + '\n'
+
+    return output
 
 
 def print_line(line: str, rainbow: bool = False, offset: int = 0) -> None:
     if rainbow:
-        print_rainbow(line, offset=offset)
+        return print_rainbow(line, offset=offset)
     else:
-        print(line)
+        return line + '\n'
 
 
 def print_board(
     board: list,
     cursor: int, 
     rainbow: bool = False, 
-    alignment: str = 'l'
+    alignment: str = 'l',
 ) -> None:
+
+    output = ''
+
     for i, line in enumerate(board):
+
+        # add spaces to the line to align it
         if alignment == 'l':
             aligned_line = ''.join(line[cursor:])
         elif alignment == 'r':
@@ -60,8 +69,9 @@ def print_board(
             num_spaces_right = cursor - num_spaces_left
             aligned_line = ' ' * num_spaces_left + ''.join(line[cursor:]) + ' ' * num_spaces_right
 
-        print_line(''.join(aligned_line), rainbow=rainbow, offset=i)
-    print()
+        output += print_line(''.join(aligned_line), rainbow=rainbow, offset=i)
+
+    return output
 
 
 # convert text into ascii art and print
@@ -72,7 +82,7 @@ def render(
     rainbow: bool = False, 
     alignment: str = 'l',
     width: int = None
-) -> None:
+) -> str:
 
     # get directory where fonts are stored
     fonts_dir = __file__.replace("araste.py", "") + "fonts"
@@ -147,6 +157,8 @@ def render(
     # add space to beginning and end of text to make it easier to handle
     text = ' ' + text + ' '
 
+    rendered_ascii_art = ''
+
     # read characters from text and render them and print the result
     for i in range(1, len(text) - 1):
 
@@ -169,7 +181,9 @@ def render(
         # if cursor has reached the end of the board or if character is a newline character
         if cursor <= next_width or text[i] in ['\n', '\r']:
 
-            print_board(board, cursor, rainbow=rainbow, alignment=alignment)
+            rendered_ascii_art += print_board(board, cursor, rainbow=rainbow, alignment=alignment)
+            rendered_ascii_art += '\n'
+            # print(rendered_ascii_art)
 
             # reset the board and cursor
             cursor = boardw
@@ -186,4 +200,7 @@ def render(
             cursor -= next_width
 
     # print the remaining of the board
-    print_board(board, cursor, rainbow=rainbow, alignment=alignment)
+    rendered_ascii_art += print_board(board, cursor, rainbow=rainbow, alignment=alignment)
+
+    return rendered_ascii_art
+    print(rendered_ascii_art)

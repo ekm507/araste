@@ -33,7 +33,7 @@ def main():
                         dest="rainbow", action="store_true")
     parser.add_argument("-a", "--alignment", help="alignment of output [l,r,c]", default='l')
     parser.add_argument("-w", "--width", help="specify width maximum of text", default=None, type=int)
-    parser.add_argument("text", help="Text", nargs='*')
+    parser.add_argument("text", help="Text", nargs='*', default='')
 
     args = parser.parse_args()
 
@@ -50,7 +50,8 @@ def main():
     if len(args.text) > 0:
         text = ' '.join(args.text)
         try:
-            araste.render(text, args.font, ' ', rainbow=args.rainbow, alignment=args.alignment, width=args.width)
+            rendered_ascii_art = araste.render(text, args.font, ' ', rainbow=args.rainbow, alignment=args.alignment, width=args.width)
+            print(rendered_ascii_art)
         except FileNotFoundError:
             message("Error", f"{args.font} is not found")
             exit(1)
@@ -58,7 +59,9 @@ def main():
         while True:
             try:
                 text = input()
-                araste.render(text, args.font, ' ', rainbow=args.rainbow, alignment=args.alignment, width=args.width)
+                rendered_ascii_art = araste.render(text, args.font, ' ', rainbow=args.rainbow, alignment=args.alignment, width=args.width)
+                print(rendered_ascii_art)
+
             except EOFError:
                 break
             except FileNotFoundError:
