@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from math import floor
 import os
-
+import sys
 
 # copy a block into the board
 def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
@@ -70,7 +70,8 @@ def render(
     font: str, 
     empty_char: str = ' ', 
     rainbow: bool = False, 
-    alignment: str = 'l'
+    alignment: str = 'l',
+    width: int = None
 ) -> None:
 
     # get directory where fonts are stored
@@ -91,8 +92,21 @@ def render(
     except:
         raise FileNotFoundError
 
+    # get board width
+    # if board width is not provided in args:
+    if width == None:
+        # try to get terminal width
+        if sys.stdout and sys.stdout.isatty():
+            boardw = os.get_terminal_size().columns
+        # if terminal is not available (e.g: output is being piped or redirected)
+        else:
+            # set the width to 80 as default
+            boardw = 80
+    # if board width is provided in args, just use it
+    else:
+        boardw = width
+
     # get font headers
-    boardw = os.get_terminal_size().columns
     boardh = int(flf_headers[1])
     korsi = int(flf_headers[2])
     max_block_width = int(flf_headers[3])
