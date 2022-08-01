@@ -31,6 +31,8 @@ def main():
                         dest="get_font_list", action="store_true")
     parser.add_argument("-F", "--filter", help="specify output filter (e.g: rainbow)",
                         dest="filter", type=str)
+    parser.add_argument("--filter-list", help="list available filters",
+                        dest="get_filter_list", action="store_true")    
     parser.add_argument("-a", "--alignment", help="alignment of output [l,r,c]", default='l')
     parser.add_argument("-w", "--width", help="specify width maximum of text", default=None, type=int)
     parser.add_argument("text", help="Text", nargs='*', default='')
@@ -45,6 +47,14 @@ def main():
         fonts_list = os.listdir(fonts_dir)
         for font_name in fonts_list:
             print(font_name.rstrip('.flf'))
+        exit(0)
+    
+    elif args.get_filter_list:
+        from araste.filters import get_filters
+        filter_list = get_filters()
+
+        for filter in filter_list:
+            print(filter, ':', filter_list[filter])
         exit(0)
 
     if len(args.text) > 0:
