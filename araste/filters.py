@@ -3,7 +3,8 @@
 def apply_filter(text: str, filter_name: str) -> str:
 
     filter_map = {
-        'rainbow': rainbow
+        'rainbow': rainbow,
+        'box': box
     }
 
     if filter_name not in filter_map.keys():
@@ -14,6 +15,7 @@ def apply_filter(text: str, filter_name: str) -> str:
 def get_filters() -> map:
     filters_details = {
         'rainbow': 'rainbow colors',
+        'box': 'text in a box',
     }
     return filters_details
 
@@ -39,3 +41,16 @@ def rainbow(art:str) -> str:
         output += end_color + '\n'
 
     return output
+
+def box(art:str) -> str:
+    art_lines = art.split('\n')
+    width = len(art_lines[0])
+
+    output = ''
+    output += '╔' + '═' * width + '╗' + '\n'
+    for line in art_lines:
+        output += '║' + line + '║' + '\n'
+    output += '╚' + '═' * width + '╝'
+
+    return output
+    
