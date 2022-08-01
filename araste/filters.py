@@ -11,6 +11,12 @@ def apply_filter(text: str, filter_name: str) -> str:
 
     return filter_map[filter_name](text)
 
+def get_filters() -> map:
+    filters_details = {
+        'rainbow': 'rainbow colors',
+    }
+    return filters_details
+
 def rainbow(art:str) -> str:
 
     # list of colors for rainbow. ansi escape codes.
