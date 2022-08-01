@@ -40,7 +40,7 @@ def rainbow(art:str) -> str:
                 output += ' '
         output += end_color + '\n'
 
-    return output
+    return output[:-1]
 
 def box(art:str) -> str:
     art_lines = art.split('\n')
