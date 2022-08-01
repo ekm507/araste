@@ -47,7 +47,7 @@ def print_board(
 
         output += print_line(''.join(aligned_line), offset=i)
 
-    return output
+    return output[:-1]
 
 
 # convert text into ascii art and print
