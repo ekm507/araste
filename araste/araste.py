@@ -2,7 +2,7 @@
 from math import floor
 import os
 import sys
-from araste import filters
+from araste.filters import apply_filter
 
 # copy a block into the board
 def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
@@ -55,7 +55,7 @@ def render(
     text: str, 
     font: str, 
     empty_char: str = ' ', 
-    rainbow: bool = False, 
+    filter: str = '', 
     alignment: str = 'l',
     width: int = None
 ) -> str:
@@ -178,9 +178,7 @@ def render(
     # print the remaining of the board
     rendered_ascii_art += print_board(board, cursor, alignment=alignment)
 
-    # apply rainbow filter if needed
+    # apply filter
+    filtered_art = apply_filter(rendered_ascii_art, filter)
 
-    if rainbow == True:
-        rendered_ascii_art = filters.rainbow(rendered_ascii_art)
-
-    return rendered_ascii_art
+    return filtered_art
