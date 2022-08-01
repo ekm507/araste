@@ -2,6 +2,7 @@
 from math import floor
 import os
 import sys
+from araste import filters
 
 # copy a block into the board
 def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
@@ -20,38 +21,13 @@ def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
     return board, len(block[korsi])
 
 
-# list of colors for rainbow. ansi escape codes.
-rainbow_colors = ['\33[31m', '\33[33m', '\33[93m', '\33[32m', '\33[36m', '\33[34m', '\33[35m']
-
-# ansi escape code for end of color
-end_color = '\33[0m'
-
-
-# print colorful text (ansi terminal only)
-def print_rainbow(text: str, offset: int = 0) -> None:
-    
-    output = ''
-    for i in range(len(text)):
-        if text[i] != ' ':
-            output += rainbow_colors[(i + offset) % len(rainbow_colors)] + text[i]
-        else:
-            output += ' '
-    output += end_color + '\n'
-
-    return output
-
-
-def print_line(line: str, rainbow: bool = False, offset: int = 0) -> None:
-    if rainbow:
-        return print_rainbow(line, offset=offset)
-    else:
-        return line + '\n'
+def print_line(line: str, offset: int = 0) -> None:
+    return line + '\n'
 
 
 def print_board(
     board: list,
     cursor: int, 
-    rainbow: bool = False, 
     alignment: str = 'l',
 ) -> None:
 
@@ -69,7 +45,7 @@ def print_board(
             num_spaces_right = cursor - num_spaces_left
             aligned_line = ' ' * num_spaces_left + ''.join(line[cursor:]) + ' ' * num_spaces_right
 
-        output += print_line(''.join(aligned_line), rainbow=rainbow, offset=i)
+        output += print_line(''.join(aligned_line), offset=i)
 
     return output
 
@@ -181,7 +157,7 @@ def render(
         # if cursor has reached the end of the board or if character is a newline character
         if cursor <= next_width or text[i] in ['\n', '\r']:
 
-            rendered_ascii_art += print_board(board, cursor, rainbow=rainbow, alignment=alignment)
+            rendered_ascii_art += print_board(board, cursor, alignment=alignment)
             rendered_ascii_art += '\n'
             # print(rendered_ascii_art)
 
@@ -200,7 +176,11 @@ def render(
             cursor -= next_width
 
     # print the remaining of the board
-    rendered_ascii_art += print_board(board, cursor, rainbow=rainbow, alignment=alignment)
+    rendered_ascii_art += print_board(board, cursor, alignment=alignment)
+
+    # apply rainbow filter if needed
+
+    if rainbow == True:
+        rendered_ascii_art = filters.rainbow(rendered_ascii_art)
 
     return rendered_ascii_art
-    print(rendered_ascii_art)
