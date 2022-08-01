@@ -29,8 +29,8 @@ def main():
                         dest="font", default=default_font_name)
     parser.add_argument("--list", help="list available fonts",
                         dest="get_font_list", action="store_true")
-    parser.add_argument("-F", "--filter", help="specify output filter (e.g: rainbow)",
-                        dest="filter", type=str)
+    parser.add_argument("-F", "--filter", help="specify output filter (can be multiple!)",
+                        dest="filters", type=str, nargs='*')
     parser.add_argument("--filter-list", help="list available filters",
                         dest="get_filter_list", action="store_true")    
     parser.add_argument("-a", "--alignment", help="alignment of output [l,r,c]", default='l')
@@ -60,7 +60,7 @@ def main():
     if len(args.text) > 0:
         text = ' '.join(args.text)
         try:
-            rendered_ascii_art = araste.render(text, args.font, ' ', filter=args.filter, alignment=args.alignment, width=args.width)
+            rendered_ascii_art = araste.render(text, args.font, ' ', filters=args.filters, alignment=args.alignment, width=args.width)
             print(rendered_ascii_art)
         except FileNotFoundError:
             message("Error", f"{args.font} is not found")
@@ -69,7 +69,7 @@ def main():
         while True:
             try:
                 text = input()
-                rendered_ascii_art = araste.render(text, args.font, ' ', filter=args.filter, alignment=args.alignment, width=args.width)
+                rendered_ascii_art = araste.render(text, args.font, ' ', filters=args.filters, alignment=args.alignment, width=args.width)
                 print(rendered_ascii_art)
 
             except EOFError:

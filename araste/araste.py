@@ -55,7 +55,7 @@ def render(
     text: str, 
     font: str, 
     empty_char: str = ' ', 
-    filter: str = '', 
+    filters: list = [], 
     alignment: str = 'l',
     width: int = None
 ) -> str:
@@ -179,6 +179,9 @@ def render(
     rendered_ascii_art += print_board(board, cursor, alignment=alignment)
 
     # apply filter
-    filtered_art = apply_filter(rendered_ascii_art, filter)
 
-    return filtered_art
+    if filters is not None:
+        for filter in filters:
+            rendered_ascii_art = apply_filter(rendered_ascii_art, filter)
+
+    return rendered_ascii_art
