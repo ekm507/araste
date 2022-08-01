@@ -1,4 +1,6 @@
 # filters for araste output are here
+from distutils.command.build_scripts import first_line_re
+import re
 
 def apply_filter(text: str, filter_name: str) -> str:
 
@@ -44,7 +46,8 @@ def rainbow(art:str) -> str:
 
 def box(art:str) -> str:
     art_lines = art.split('\n')
-    width = len(art_lines[0])
+    first_line_ansii_removed = re.sub(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]', '', art_lines[0])
+    width = len(first_line_ansii_removed)
 
     output = ''
     output += '╔' + '═' * width + '╗' + '\n'
