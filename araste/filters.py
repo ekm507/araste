@@ -1,5 +1,16 @@
 # filters for araste output are here
 
+def apply_filter(text: str, filter_name: str) -> str:
+
+    filter_map = {
+        'rainbow': rainbow
+    }
+
+    if filter_name not in filter_map.keys():
+        return text
+
+    return filter_map[filter_name](text)
+
 def rainbow(art:str) -> str:
 
     # list of colors for rainbow. ansi escape codes.
