@@ -112,7 +112,7 @@ def vertical_mirror(art: str) -> str:
     art_lines.reverse()
     output = '\n'.join(art_lines)
 
-    return output[:-1]
+    return output
 
 def horizontal_mirror(art: str) -> str:
     art_lines = art.split('\n')
