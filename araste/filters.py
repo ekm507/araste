@@ -10,6 +10,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'box': box,
         'vmirror': vertical_mirror,
         'hmirror': horizontal_mirror,
+        'ritalic': italic_right,
     }
 
     if filter_name not in filter_map.keys():
@@ -25,6 +26,7 @@ def get_filters() -> map:
         'box': 'text in a box',
         'vmirror': 'vertical mirror',
         'hmirror': 'horizontal mirror',
+        'ritalic': 'skew the output a bit to the right',
     }
     return filters_details
 
@@ -120,3 +122,14 @@ def horizontal_mirror(art: str) -> str:
     output = '\n'.join(line[::-1] for line in art_lines)
 
     return output
+
+
+def italic_right(art: str) -> str:
+    art_lines = art.split('\n')
+    output = ''
+    numof_lines = len(art_lines)
+    for i, line in enumerate(art_lines):
+        output += ' ' * ((numof_lines - i)) + line + '\n'
+    
+    return output[:-1]
+
