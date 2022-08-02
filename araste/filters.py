@@ -62,10 +62,8 @@ def box(art:str) -> str:
 
 def vertical_mirror(art: str) -> str:
     art_lines = art.split('\n')
-    output = ''
     art_lines.reverse()
-    for line in art_lines:
-        output += line + '\n'
+    output = '\n'.join(art_lines)
 
     return output[:-1]
 
