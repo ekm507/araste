@@ -1,5 +1,4 @@
 # filters for araste output are here
-from distutils.command.build_scripts import first_line_re
 import re
 
 def apply_filter(text: str, filter_name: str) -> str:
