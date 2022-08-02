@@ -109,9 +109,15 @@ def box(art:str) -> str:
     max_width = max(lines_lengths)
 
     output = ''
+
+    # top of box
     output += '╔' + '═' * max_width + '╗' + '\n'
+
+    # box body
     for line_length, line in zip(lines_lengths, art_lines):
         output += '║' + line + ' ' * (max_width - line_length) + '║' + '\n'
+    
+    # bottom of box
     output += '╚' + '═' * max_width + '╝'
 
     return output
