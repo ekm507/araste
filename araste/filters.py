@@ -11,6 +11,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'vmirror': vertical_mirror,
         'hmirror': horizontal_mirror,
         'ritalic': italic_right,
+        'litalic': italic_left,
     }
 
     if filter_name not in filter_map.keys():
@@ -27,6 +28,7 @@ def get_filters() -> map:
         'vmirror': 'vertical mirror',
         'hmirror': 'horizontal mirror',
         'ritalic': 'skew the output a bit to the right',
+        'litalic': 'skew the output a bit to the left',
     }
     return filters_details
 
@@ -133,3 +135,11 @@ def italic_right(art: str) -> str:
     
     return output[:-1]
 
+
+def italic_left(art: str) -> str:
+    art_lines = art.split('\n')
+    output = ''
+    for i, line in enumerate(art_lines):
+        output += ' ' *  i + line + '\n'
+    
+    return output[:-1]
