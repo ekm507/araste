@@ -6,7 +6,8 @@ def apply_filter(text: str, filter_name: str) -> str:
 
     filter_map = {
         'rainbow': rainbow,
-        'box': box
+        'box': box,
+        'vmirror': vertical_mirror,
     }
 
     if filter_name not in filter_map.keys():
@@ -18,6 +19,7 @@ def get_filters() -> map:
     filters_details = {
         'rainbow': 'rainbow colors',
         'box': 'text in a box',
+        'vmirror': 'vertical mirror',
     }
     return filters_details
 
@@ -56,4 +58,12 @@ def box(art:str) -> str:
     output += '╚' + '═' * width + '╝'
 
     return output
-    
+
+def vertical_mirror(art: str) -> str:
+    art_lines = art.split('\n')
+    output = ''
+    art_lines.reverse()
+    for line in art_lines:
+        output += line + '\n'
+
+    return output[:-1]
