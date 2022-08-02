@@ -7,6 +7,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'rainbow': rainbow,
         'box': box,
         'vmirror': vertical_mirror,
+        'hmirror': horizontal_mirror,
     }
 
     if filter_name not in filter_map.keys():
@@ -19,6 +20,7 @@ def get_filters() -> map:
         'rainbow': 'rainbow colors',
         'box': 'text in a box',
         'vmirror': 'vertical mirror',
+        'hmirror': 'horizontal mirror',
     }
     return filters_details
 
@@ -66,3 +68,10 @@ def vertical_mirror(art: str) -> str:
         output += line + '\n'
 
     return output[:-1]
+
+def horizontal_mirror(art: str) -> str:
+    art_lines = art.split('\n')
+
+    output = '\n'.join(line[::-1] for line in art_lines)
+
+    return output
