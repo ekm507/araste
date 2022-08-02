@@ -6,6 +6,7 @@ def apply_filter(text: str, filter_name: str) -> str:
     filter_map = {
         'rainbow': rainbow,
         'vrainbow': rainbow_vertical,
+        'hrainbow': rainbow_horizontal,
         'box': box,
         'vmirror': vertical_mirror,
         'hmirror': horizontal_mirror,
@@ -20,6 +21,7 @@ def get_filters() -> map:
     filters_details = {
         'rainbow': 'rainbow colors',
         'vrainbow': 'rainbow colors vertical',
+        'hrainbow': 'rainbow colors horizontal',
         'box': 'text in a box',
         'vmirror': 'vertical mirror',
         'hmirror': 'horizontal mirror',
@@ -70,6 +72,24 @@ def rainbow_vertical(art:str) -> str:
             else:
                 output += ' '
         output += end_color + '\n'
+
+    return output[:-1]
+
+
+
+def rainbow_horizontal(art:str) -> str:
+
+    # list of colors for rainbow. ansi escape codes.
+    rainbow_colors = ['\33[31m', '\33[33m', '\33[93m', '\33[32m', '\33[36m', '\33[34m', '\33[35m']
+
+    # ansi escape code for end of color
+    end_color = '\33[0m'
+
+    output = ''
+
+    # process text line by line
+    for i, line in enumerate(art.split('\n')):
+        output += rainbow_colors[i % len(rainbow_colors)] + line + end_color + '\n'
 
     return output[:-1]
 
