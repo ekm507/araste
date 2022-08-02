@@ -100,14 +100,19 @@ def rainbow_horizontal(art:str) -> str:
 
 def box(art:str) -> str:
     art_lines = art.split('\n')
-    first_line_ansii_removed = re.sub(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]', '', art_lines[0])
-    width = len(first_line_ansii_removed)
+    ansi_removed_lines = [
+        re.sub(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]', '', line)
+        for line in art_lines
+    ]
+
+    lines_lengths = list(map(lambda line: len(line), ansi_removed_lines))
+    max_width = max(lines_lengths)
 
     output = ''
-    output += '╔' + '═' * width + '╗' + '\n'
-    for line in art_lines:
-        output += '║' + line + '║' + '\n'
-    output += '╚' + '═' * width + '╝'
+    output += '╔' + '═' * max_width + '╗' + '\n'
+    for line_length, line in zip(lines_lengths, art_lines):
+        output += '║' + line + ' ' * (max_width - line_length) + '║' + '\n'
+    output += '╚' + '═' * max_width + '╝'
 
     return output
 
