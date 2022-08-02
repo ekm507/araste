@@ -120,11 +120,22 @@ def vertical_mirror(art: str) -> str:
 
 def horizontal_mirror(art: str) -> str:
     art_lines = art.split('\n')
+    ansi_escape_regex = r'((\x9B|\x1B\[)[0-?]*[ -\/]*[@-~])'
 
-    output = '\n'.join(line[::-1] for line in art_lines)
+    output = ''
 
-    return output
+    for line in art_lines:    
+        chars_and_escape_codes = re.split(ansi_escape_regex, line)
+        # chars_and_escape_codes.reverse()
+        reversed_string = ''
+        for code in chars_and_escape_codes[::-1]:
+            if re.match(ansi_escape_regex, code):
+                reversed_string += code
+            else:
+                reversed_string += code[::-1]
+        output += reversed_string + '\n'
 
+    return output[:-1]
 
 def italic_right(art: str) -> str:
     art_lines = art.split('\n')
