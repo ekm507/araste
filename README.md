@@ -94,6 +94,7 @@ $ araste 'برعکس' -F hmirror
 
 ```bash
 $ araste نوشته -F vrainbow box
+```
 
 هم‌چنین سوییچ `--filter-list` فهرست فیلترهای موجود را چاپ می‌کند.
 
