@@ -42,6 +42,7 @@ def get_filters() -> map:
         'flip90': 'flip art by 90 degrees',
         'hgrow': 'grow art horizontally',
         'vgrow': 'grow art vertically',
+        '[red, orange, yellow, green, cyan, blue, purple]': 'output in selected color',
     }
     return filters_details
 
