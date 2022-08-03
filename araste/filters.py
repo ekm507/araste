@@ -12,6 +12,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'hmirror': horizontal_mirror,
         'ritalic': italic_right,
         'litalic': italic_left,
+        'flip90': flip90,
     }
 
     if filter_name not in filter_map.keys():
@@ -164,4 +165,23 @@ def italic_left(art: str) -> str:
     for i, line in enumerate(art_lines):
         output += ' ' *  i + line + '\n'
     
+    return output[:-1]
+
+def flip90(art: str) -> str:
+    art_lines = art.split('\n')
+
+    # make a 2d matrix of chars
+    art_char_list = [
+        list(line)
+        for line in art_lines]
+
+    # transpose char matrix
+    char_list_flipped = list(map(list, zip(*art_char_list)))
+
+    # start writing matrix content into output
+    output = ''
+
+    for line in char_list_flipped[::-1]:
+        output += ''.join(line) + '\n'
+
     return output[:-1]
