@@ -18,6 +18,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'red': lambda x: color('red', x),
         'orange': lambda x: color('orange', x),
         'yellow': lambda x: color('yellow', x),
+        'green': lambda x: color('green', x),
     }
 
     if filter_name not in filter_map.keys():
