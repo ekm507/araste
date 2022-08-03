@@ -17,6 +17,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'vgrow': grow_vertical,
         'red': lambda x: color('red', x),
         'orange': lambda x: color('orange', x),
+        'yellow': lambda x: color('yellow', x),
     }
 
     if filter_name not in filter_map.keys():
