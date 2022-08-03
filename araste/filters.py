@@ -14,6 +14,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'litalic': italic_left,
         'flip90': flip90,
         'hgrow': grow_horizontal,
+        'vgrow': grow_vertical,
     }
 
     if filter_name not in filter_map.keys():
@@ -33,6 +34,7 @@ def get_filters() -> map:
         'litalic': 'skew the output a bit to the left',
         'flip90': 'flip art by 90 degrees',
         'hgrow': 'grow art horizontally',
+        'vgrow': 'grow art vertically',
     }
     return filters_details
 
@@ -200,5 +202,18 @@ def grow_horizontal(art: str) -> str:
         for character in line:
             output += character * grow_ratio
         output += '\n'
+
+    return output[:-1]
+
+
+def grow_vertical(art: str) -> str:
+    grow_ratio = 2
+
+    art_lines = art.split('\n')
+
+    output = ''
+
+    for line in art_lines:
+        output += (line + '\n') * grow_ratio
 
     return output[:-1]
