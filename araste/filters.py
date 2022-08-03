@@ -217,3 +217,27 @@ def grow_vertical(art: str) -> str:
         output += (line + '\n') * grow_ratio
 
     return output[:-1]
+
+def color(color: str, art: str) -> str:
+
+    # list of colors for rainbow. ansi escape codes.
+    rainbow_colors = {
+    'red':'\33[31m',
+    'orange': '\33[33m',
+    'yellow': '\33[93m',
+    'green': '\33[32m',
+    'cyan': '\33[36m',
+    'blue': '\33[34m',
+    'purple': '\33[35m'
+    }
+
+    # ansi escape code for end of color
+    end_color = '\33[0m'
+
+    art_lines = art.split('\n')
+    
+    output = ''
+    for line in art_lines:
+        output += rainbow_colors[color] + line + end_color + '\n'
+    
+    return output[:-1]
