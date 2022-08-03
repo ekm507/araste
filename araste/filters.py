@@ -31,6 +31,7 @@ def get_filters() -> map:
         'hmirror': 'horizontal mirror',
         'ritalic': 'skew the output a bit to the right',
         'litalic': 'skew the output a bit to the left',
+        'flip90': 'flip art by 90 degrees',
         'hgrow': 'grow art horizontally',
     }
     return filters_details
