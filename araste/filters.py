@@ -15,6 +15,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'flip90': flip90,
         'hgrow': grow_horizontal,
         'vgrow': grow_vertical,
+        'red': lambda x: color('red', x),
     }
 
     if filter_name not in filter_map.keys():
