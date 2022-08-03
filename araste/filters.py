@@ -13,6 +13,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'ritalic': italic_right,
         'litalic': italic_left,
         'flip90': flip90,
+        'hgrow': grow_horizontal,
     }
 
     if filter_name not in filter_map.keys():
@@ -30,6 +31,7 @@ def get_filters() -> map:
         'hmirror': 'horizontal mirror',
         'ritalic': 'skew the output a bit to the right',
         'litalic': 'skew the output a bit to the left',
+        'hgrow': 'grow art horizontally',
     }
     return filters_details
 
@@ -183,5 +185,19 @@ def flip90(art: str) -> str:
 
     for line in char_list_flipped[::-1]:
         output += ''.join(line) + '\n'
+
+    return output[:-1]
+
+def grow_horizontal(art: str) -> str:
+    grow_ratio = 2
+
+    art_lines = art.split('\n')
+
+    output = ''
+
+    for line in art_lines:
+        for character in line:
+            output += character * grow_ratio
+        output += '\n'
 
     return output[:-1]
