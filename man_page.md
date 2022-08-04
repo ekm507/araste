@@ -10,74 +10,46 @@ date: July 7, 2022
 Araste - making ascii-art out of Persian/Arabic text
 
 # SYNOPSIS
-
-araste [options] <your text>
-
+**araste** [*OPTION*] [*TEXT*]
 
 # DESCRIPTION
 Similar to the figlet and toilet tools, but for Persian and Arabic texts.
 
-# COMMANDS
 
-usage:
+# OPTIONS
 
-```bash
-araste <your text>
-```
+**-h** 
+: display help message
 
-use `-f` switch to choose font
+**-f**
+: select font
 
-```bash
-araste 'your persian/arabic text' -f 'fontpath or fontname'
-```
+**--list**
+: list available fonts
 
-to get a list of installed fonts:
+**-F**
+: chose a filter. you can concatenate filters.
 
-```bash
-araste --list
-```
+**--filter-list**
+: list available filters
 
-for now, there are a few fonts that you can use:
-```
-aipara
-aipara_mini
-zivar
-nima
-```
+**-a, --alignment**
+: chose text alignment can be either "l", "r" or "c"
 
-it can also read text from stdin. so you can do something like this:
-
-```bash
-echo 'آراسته' | araste
-```
-
-to get help:
-
-```bash
-araste -h
-```
+**-w, --width**
+: set maximum width of rendered output
 
 
-an output with the default font (aipara):
+# EXAMPLES
+araste -f zivar یک نوشته‌ی فارسی
 
-```
-                                      ██████
-        ████                ██        ██
-  ████                      ██          ██
-  ████    ██    ██  ██  ██  ██    ██    ██
-    ██████████████████████  ██    ██    ██
-                                  ██
-                                ██
-```
+araste نوشته‌ی رنگی داخل قاب -F rainbow box
 
-# Instaling Fonts
+# AUTHOR
+Written by Torbjorn Granlund and Richard M. Stallman.
 
-For Installing Fonts You Can Use araste-get
-````bash
-araste-get install FontName
-````
+# REPORTING BUGS
+[araste source code](https://github.com/ekm507/araste)
 
-# Creating New Fonts!
-
-To get additional fonts for araste or to create your own custom fonts, use tools and manuals in [araste-fonts](https://github.com/ekm507/araste-fonts) repo.
-
+# SEE ALSO
+araste-get(1)
