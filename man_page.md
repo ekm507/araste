@@ -46,7 +46,7 @@ araste -f zivar یک نوشته‌ی فارسی
 araste نوشته‌ی رنگی داخل قاب -F rainbow box
 
 # AUTHOR
-Written by Torbjorn Granlund and Richard M. Stallman.
+maintained by Erfan Kheyrollahi (ekm507@gmail.com)
 
 # REPORTING BUGS
 [araste source code](https://github.com/ekm507/araste)
