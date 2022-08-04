@@ -24,19 +24,19 @@ Similar to the figlet and toilet tools, but for Persian and Arabic texts.
 **-f**
 : select font
 
-**--list**
+**\--list**
 : list available fonts
 
 **-F**
 : chose a filter. you can concatenate filters.
 
-**--filter-list**
+**\--filter-list**
 : list available filters
 
-**-a, --alignment**
+**-a, \--alignment**
 : chose text alignment can be either "l", "r" or "c"
 
-**-w, --width**
+**-w, \--width**
 : set maximum width of rendered output
 
 
