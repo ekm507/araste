@@ -34,7 +34,7 @@ Similar to the figlet and toilet tools, but for Persian and Arabic texts.
 : list available filters
 
 **-a, \--alignment**
-: chose text alignment can be either "l", "r" or "c"
+: chose text alignment can be one of (l, r, c)
 
 **-w, \--width**
 : set maximum width of rendered output
