@@ -1,11 +1,12 @@
 import setuptools
+from araste import __version__
 
 with open("README_EN.md") as readme:
     long_description = readme.read()
 
 setuptools.setup(
     name="araste",
-    version="1.3",
+    version=__version__,
     description="Convert persian text to ascii art",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -13,7 +14,7 @@ setuptools.setup(
     author_email="ekm507@gmail.com",
     keywords="figlet",
     url="https://github.com/ekm507/araste",
-    install_requires=['argparse'],
+    install_requires=["argparse"],
     classifiers=[],
     packages=["araste"],
     package_dir={"araste": "araste"},
@@ -21,5 +22,5 @@ setuptools.setup(
     scripts=[
         "bin/araste",
         "bin/araste-get",
-    ]
+    ],
 )
