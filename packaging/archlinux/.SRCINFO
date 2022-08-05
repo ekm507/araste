@@ -1,6 +1,6 @@
 pkgbase = araste-git
 	pkgdesc = Making ascii-art out of Persian/Arabic text
-	pkgver = r1.3.346.61d5cb8
+	pkgver = r1.3_350.45eb90f
 	pkgrel = 1
 	url = https://github.com/ekm507/araste
 	install = beauty.install
