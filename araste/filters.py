@@ -22,6 +22,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'cyan': lambda x: color('cyan', x),
         'blue': lambda x: color('blue', x),
         'purple': lambda x: color('purple', x),
+        'blinker': lambda x: color('blinker', x)
     }
 
     if filter_name not in filter_map.keys():
@@ -42,7 +43,7 @@ def get_filters() -> map:
         'flip90': 'flip art by 90 degrees',
         'hgrow': 'grow art horizontally',
         'vgrow': 'grow art vertically',
-        '[red, orange, yellow, green, cyan, blue, purple]': 'output in selected color',
+        '[red, orange, yellow, green, cyan, blue, purple, blinker]': 'output in selected color',
     }
     return filters_details
 
@@ -236,7 +237,8 @@ def color(color: str, art: str) -> str:
     'green': '\33[32m',
     'cyan': '\33[36m',
     'blue': '\33[34m',
-    'purple': '\33[35m'
+    'purple': '\33[35m',
+    'blinker': '\33[5m'
     }
 
     # ansi escape code for end of color
