@@ -4,7 +4,7 @@
 
 pkgname="araste-git"
 _gitname="araste"
-pkgver=r1.3.346.61d5cb8
+pkgver=r1.3_350.45eb90f
 pkgrel=1
 pkgdesc="Making ascii-art out of Persian/Arabic text"
 arch=("any")
@@ -20,7 +20,7 @@ pkgver() {
   cd "${srcdir}/${_gitname}"
   ( set -o pipefail
     git describe --long 2>/dev/null | sed "s/\([^-]*-g\)/r\1/;s/-/./g" ||
-    printf "r%s-%s.%s" "$(python -c 'from araste import __version__;print(__version__)')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)" ||
+    printf "r%s_%s.%s" "$(python -c 'from araste import __version__;print(__version__)')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)" ||
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
   )
 }
