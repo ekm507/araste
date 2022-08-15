@@ -60,7 +60,8 @@ def main():
     if len(args.text) > 0:
         text = ' '.join(args.text)
         try:
-            rendered_ascii_art = araste.render(text, args.font, ' ', filters=args.filters, alignment=args.alignment, width=args.width)
+            rendered_ascii_art = araste.render(text, args.font, ' ',
+             filters=args.filters, alignment=args.alignment, width=args.width)
             print(rendered_ascii_art)
         except FileNotFoundError:
             message("Error", f"{args.font} is not found")
@@ -69,7 +70,8 @@ def main():
         while True:
             try:
                 text = input()
-                rendered_ascii_art = araste.render(text, args.font, ' ', filters=args.filters, alignment=args.alignment, width=args.width)
+                rendered_ascii_art = araste.render(text, args.font, ' ',
+                 filters=args.filters, alignment=args.alignment, width=args.width)
                 print(rendered_ascii_art)
 
             except EOFError:
