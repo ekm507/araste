@@ -60,8 +60,8 @@ def read_font(font:str) -> dict:
     # font glyphs is character to block
     font_glyphs = dict()
     for i in range(num_chars):
-        persianchars = fontfile.readline()[:-1]
-        char_variation, char_direction = fontfile.readline()[:-1].split('\n')
+        persianchars = fontfile.readline().rstrip('\n')
+        char_variation, char_direction = fontfile.readline().rstrip('\n').split(' ')
         persianasciichars = '\n'.join(
             [fontfile.readline()[:-1] for _ in range(block_height)])
 
