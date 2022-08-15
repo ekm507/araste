@@ -24,6 +24,64 @@ def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
 def print_line(line: str, offset: int = 0) -> None:
     return line + '\n'
 
+def read_font(font:str) -> dict:
+
+    # get directory where fonts are stored
+    fonts_dir = __file__.replace("araste.py", "") + "fonts"
+
+    # get font file name
+    # if font is a directory:
+    if '/' in font:
+        font_filename = os.path.realpath(str(font))
+    else:
+        font_filename = fonts_dir.rstrip(
+            '/') + '/' + font.replace(".aff", "") + ".aff"
+
+    # read the font
+    try:
+        fontfile = open(font_filename)
+        aff_headers = fontfile.readline().split(' ')
+    except:
+        raise FileNotFoundError
+
+    if aff_headers[0] != 'aff2':
+        sys.exit(1)
+
+
+
+    # get font headers
+    block_height = int(aff_headers[1])
+    korsi = int(aff_headers[2])
+    comment_lines = int(aff_headers[3])
+    num_chars = int(aff_headers[5])
+    for _ in range(comment_lines):
+        fontfile.readline()
+
+    # get font characters
+    # font glyphs is character to block
+    font_glyphs = list()
+    for i in range(num_chars):
+        persianchars = fontfile.readline()[:-1]
+        char_variation, char_direction = fontfile.readline()[:-1].split('\n')
+        persianasciichars = '\n'.join(
+            [fontfile.readline()[:-1] for _ in range(block_height)])
+        glyph_data = {
+            'char': persianchars,
+            'variation': char_variation,
+            'direction': char_direction,
+            'glyph': persianasciichars,
+        }
+        font_glyphs.append(glyph_data)
+    
+    font_data = {
+        'height': block_height,
+        'korsi': korsi,
+        'glyphs': font_glyphs,
+    }
+    
+    return font_data
+
+
 
 def print_board(
     board: list,
@@ -60,23 +118,16 @@ def render(
     width: int = None
 ) -> str:
 
-    # get directory where fonts are stored
-    fonts_dir = __file__.replace("araste.py", "") + "fonts"
+    font_data = read_font(font)
 
-    # get font file name
-    # if font is a directory:
-    if '/' in font:
-        font_filename = os.path.realpath(str(font))
-    else:
-        font_filename = fonts_dir.rstrip(
-            '/') + '/' + font.replace(".flf", "") + ".flf"
 
-    # read the font
-    try:
-        fontfile = open(font_filename)
-        flf_headers = fontfile.readline().split(' ')
-    except:
-        raise FileNotFoundError
+    # characters which need character to be separated if it is after them
+    after_n = list("()«»رذزدژآاءوؤ!؟?\n. ‌،:؛")
+    # characters which need character to be separated if it is before them
+    before_n = list("()«» ‌،؛:.؟!?\n")
+    # list of characters in persian alphabet
+    fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ' + '\u200d')
+
 
     # get board width
     # if board width is not provided in args:
@@ -92,31 +143,6 @@ def render(
     else:
         boardw = width
 
-    # get font headers
-    boardh = int(flf_headers[1])
-    korsi = int(flf_headers[2])
-    max_block_width = int(flf_headers[3])
-    comment_lines = int(flf_headers[5])
-    num_chars = int(flf_headers[8])
-    for _ in range(comment_lines):
-        fontfile.readline()
-
-    # characters which need character to be separated if it is after them
-    after_n = list("()«»رذزدژآاءوؤ!؟?\n. ‌،:؛")
-    # characters which need character to be separated if it is before them
-    before_n = list("()«» ‌،؛:.؟!?\n")
-    # list of characters in persian alphabet
-    fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ' + '\u200d')
-
-    # get font characters
-    # font glyphs is character to block
-    font_glyphs = dict()
-    for i in range(num_chars):
-        persianchars = fontfile.readline()[:-1]
-        persianasciichars = '\n'.join(
-            [fontfile.readline()[:-2] for _ in range(boardh)])[:-1]
-        font_glyphs[persianchars] = persianasciichars
-    
     # get width of each character
     glyphs_width = {}
     for character in font_glyphs.keys():
