@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from math import floor
 import os
 import sys
 from araste.filters import apply_filter
@@ -204,8 +203,8 @@ def render(
                      for _ in range(boardh)]
 
         # copy the block of the character into the board
-        print(variation)
-        print(glyph_data[(readtext, variation)][1])
+        # print(variation)
+        # print(glyph_data[(readtext, variation)][1])
         if (readtext, variation) in glyph_data:
             board, lenc = copyboard(
                 glyph_data[(readtext, variation)][1], cursor, board, korsi)
