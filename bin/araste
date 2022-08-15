@@ -46,7 +46,7 @@ def main():
     if args.get_font_list:
         fonts_list = os.listdir(fonts_dir)
         for font_name in fonts_list:
-            print(font_name.rstrip('.flf'))
+            print(font_name.rstrip('.aff'))
         exit(0)
     
     elif args.get_filter_list:
