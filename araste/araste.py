@@ -61,7 +61,7 @@ def read_font(font:str) -> dict:
     font_glyphs = dict()
     for i in range(num_chars):
         persianchars = fontfile.readline().rstrip('\n')
-        char_variation, char_direction = fontfile.readline().rstrip('\n').split(' ')
+        char_variation, char_direction = list(map(int,fontfile.readline().rstrip('\n').split(' ')))
         persianasciichars = '\n'.join(
             [fontfile.readline()[:-1] for _ in range(block_height)])
 
@@ -184,9 +184,8 @@ def render(
         if (readtext, variation) in glyphs_width:
             next_width = glyphs_width[(readtext, variation)]
         else:
-            variation = 0
-            if (readtext, variation) in glyphs_width:
-                next_width = glyphs_width[(readtext, variation)]
+            if (readtext, 0) in glyphs_width:
+                next_width = glyphs_width[(readtext, 0)]
         
             else:
                 next_width = 0
@@ -205,8 +204,9 @@ def render(
                      for _ in range(boardh)]
 
         # copy the block of the character into the board
+        print(variation)
+        print(glyph_data[(readtext, variation)][1])
         if (readtext, variation) in glyph_data:
-            
             board, lenc = copyboard(
                 glyph_data[(readtext, variation)][1], cursor, board, korsi)
                 
