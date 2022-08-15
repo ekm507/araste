@@ -208,7 +208,7 @@ def render(
         if (readtext, variation) in glyph_data:
             
             board, lenc = copyboard(
-                glyph_data[(readtext, variation)], cursor, board, korsi)
+                glyph_data[(readtext, variation)][1], cursor, board, korsi)
                 
             # move the cursor by the width of the character to the left
             cursor -= next_width
