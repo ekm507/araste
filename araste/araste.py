@@ -145,9 +145,9 @@ def render(
 
     # get width of each character
     glyphs_width = {}
-    for character in font_glyphs.keys():
+    for character in glyph_data.keys():
         # max_line_width = max([len(line) for line in font_glyphs[character].split('\n')])
-        max_line_width = len(font_glyphs[character].split('\n')[korsi])
+        max_line_width = len(glyph_data[character][1].split('\n')[korsi])
         glyphs_width[character] = max_line_width
 
     # generate an empty board
@@ -166,10 +166,12 @@ def render(
 
         # find appropriate variation of character
         readtext = text[i]
+
         if text[i] in fa:
             if text[i+1] not in before_n:
                 if text[i] not in after_n:
                     readtext = readtext + 'ـ'
+                    
             if text[i-1] not in after_n:
                 readtext = 'ـ' + readtext
 
