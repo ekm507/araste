@@ -59,7 +59,7 @@ def read_font(font:str) -> dict:
 
     # get font characters
     # font glyphs is character to block
-    font_glyphs = list()
+    font_glyphs = dict()
     for i in range(num_chars):
         persianchars = fontfile.readline()[:-1]
         char_variation, char_direction = fontfile.readline()[:-1].split('\n')
@@ -71,14 +71,16 @@ def read_font(font:str) -> dict:
             'direction': char_direction,
             'glyph': persianasciichars,
         }
-        font_glyphs.append(glyph_data)
+        glyph_key = (persianchars, char_variation)
+        glyph_data = (char_direction, persianchars)
+        font_glyphs[glyph_key] = glyph_data
     
     font_data = {
         'height': block_height,
         'korsi': korsi,
         'glyphs': font_glyphs,
     }
-    
+
     return font_data
 
 
@@ -119,6 +121,10 @@ def render(
 ) -> str:
 
     font_data = read_font(font)
+
+    boardh = font_data['height']
+    korsi = font_data['korsi']
+    
 
 
     # characters which need character to be separated if it is after them
