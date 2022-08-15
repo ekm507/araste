@@ -167,19 +167,29 @@ def render(
         # find appropriate variation of character
         readtext = text[i]
 
+        variation = 0
+
         if text[i] in fa:
-            if text[i+1] not in before_n:
-                if text[i] not in after_n:
-                    readtext = readtext + 'ـ'
-                    
-            if text[i-1] not in after_n:
-                readtext = 'ـ' + readtext
+            if text[i+1] not in before_n and text[i] not in after_n:
+                if text[i-1] not in after_n:
+                    variation = 2
+                else:
+                    variation = 1
+            elif text[i-1] not in after_n:
+                variation = 3
+            else:
+                variation = 4
 
         # get distance cursor should move
-        if readtext in glyphs_width:
-            next_width = glyphs_width[readtext]
+        if (readtext, variation) in glyphs_width:
+            next_width = glyphs_width[(readtext, variation)]
         else:
-            next_width = 0
+            variation = 0
+            if (readtext, variation) in glyphs_width:
+                next_width = glyphs_width[(readtext, variation)]
+        
+            else:
+                next_width = 0
         
         # check if you need a newline
         # if cursor has reached the end of the board or if character is a newline character
@@ -195,10 +205,10 @@ def render(
                      for _ in range(boardh)]
 
         # copy the block of the character into the board
-        if readtext in font_glyphs:
+        if (readtext, variation) in glyph_data:
             
             board, lenc = copyboard(
-                font_glyphs[readtext], cursor, board, korsi)
+                glyph_data[(readtext, variation)], cursor, board, korsi)
                 
             # move the cursor by the width of the character to the left
             cursor -= next_width
