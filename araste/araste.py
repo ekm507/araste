@@ -20,7 +20,7 @@ def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
     return board, len(block[korsi])
 
 
-def print_line(line: str, offset: int = 0) -> None:
+def print_line(line: str) -> None:
     return line + '\n'
 
 def read_font(font:str) -> dict:
@@ -98,7 +98,7 @@ def print_board(
             num_spaces_right = cursor - num_spaces_left
             aligned_line = ' ' * num_spaces_left + ''.join(line[cursor:]) + ' ' * num_spaces_right
 
-        output += print_line(''.join(aligned_line), offset=i)
+        output += print_line(''.join(aligned_line))
 
     return output[:-1]
 
