@@ -116,7 +116,7 @@ def render(
     font_data = read_font(font)
 
     boardh = font_data['height']
-    korsi = font_data['korsi']
+    korsi = font_data['korsi'] - 1
     glyph_data = font_data['glyphs']
 
 
