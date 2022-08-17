@@ -103,7 +103,7 @@ def print_board(
     return output[:-1]
 
 
-def find_longest_substring(text:str, glyph_headers:list, variation:int) -> str:
+def find_longest_substring(text:str, glyph_headers:list, variation:int) -> tuple:
 
     accepting_variations = [0, variation]
 
