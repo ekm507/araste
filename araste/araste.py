@@ -144,6 +144,9 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
         else:
             i += 1
 
+    substrings.append( (substring, direction) )
+
+
     return substrings
 
 # convert text into ascii art and print
