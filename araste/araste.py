@@ -113,7 +113,11 @@ def find_longest_substring(text:str, glyph_headers:list, variation:int) -> tuple
     try:
         longest = max(matchings, key=lambda x:len(x[0]))
     except ValueError:
-        longest = ('', 0)
+        matchings = filter(lambda character: text.startswith(character[0]), glyph_headers)
+        try:
+            longest = max(matchings, key=lambda x:len(x[0]))
+        except ValueError:
+            longest = ('', 0)
 
     return longest
 
@@ -176,7 +180,7 @@ def render(
 
     # read characters from text and render them and print the result
     i = 1
-    while i < len(text):
+    while i < len(text) - 1:
 
         # find appropriate variation of character
         substring = text[i]
