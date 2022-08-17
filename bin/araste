@@ -2,7 +2,6 @@
 import os
 import argparse
 
-
 # message handling
 # levels ( Error, Warning, Info, Text )
 # note: levels and text with string types
@@ -42,19 +41,18 @@ def main():
     # default dir where fonts are stored
     # there are 2 possible options. root directory or home directory
     fonts_dir = araste.__file__.replace("araste.py", "") + "fonts"
-
     if args.get_font_list:
-        fonts_list = os.listdir(fonts_dir)
+        fonts_list = filter(lambda x: x.endswith('aff'), os.listdir(fonts_dir))
         for font_name in fonts_list:
-            print(font_name.rstrip('.aff'))
+            print(font_name.rstrip('aff').rstrip('.'))
         exit(0)
     
     elif args.get_filter_list:
         from araste.filters import get_filters
         filter_list = get_filters()
 
-        for filter in filter_list:
-            print(filter, ':', filter_list[filter])
+        for araste_filter in filter_list:
+            print(araste_filter, ':', filter_list[araste_filter])
         exit(0)
 
     if len(args.text) > 0:
