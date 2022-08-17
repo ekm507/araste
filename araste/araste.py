@@ -103,6 +103,20 @@ def print_board(
     return output[:-1]
 
 
+def find_longest_substring(text:str, glyph_headers:list, variation:int) -> str:
+
+    accepting_variations = [0, variation]
+
+    matchings = filter(lambda character: character[1] in accepting_variations and text.startswith(
+        character[0]), glyph_headers)
+
+    try:
+        longest = max(matchings, key=lambda x:len(x[0]))
+    except ValueError:
+        longest = ('', 0)
+
+    return longest
+
 # convert text into ascii art and print
 def render(
     text: str, 
@@ -161,10 +175,11 @@ def render(
     rendered_ascii_art = ''
 
     # read characters from text and render them and print the result
-    for i in range(1, len(text) - 1):
+    i = 1
+    while i < len(text):
 
         # find appropriate variation of character
-        readtext = text[i]
+        substring = text[i]
 
         variation = 0
 
@@ -179,12 +194,14 @@ def render(
             else:
                 variation = 4
 
+        substring, variation = find_longest_substring(text[i:], glyph_data.keys(), variation)
+
         # get distance cursor should move
-        if (readtext, variation) in glyphs_width:
-            next_width = glyphs_width[(readtext, variation)]
+        if (substring, variation) in glyphs_width:
+            next_width = glyphs_width[(substring, variation)]
         else:
-            if (readtext, 0) in glyphs_width:
-                next_width = glyphs_width[(readtext, 0)]
+            if (substring, 0) in glyphs_width:
+                next_width = glyphs_width[(substring, 0)]
         
             else:
                 next_width = 0
@@ -204,13 +221,15 @@ def render(
 
         # copy the block of the character into the board
         # print(variation)
-        # print(glyph_data[(readtext, variation)][1])
-        if (readtext, variation) in glyph_data:
+        # print(glyph_data[(substring, variation)][1])
+        if (substring, variation) in glyph_data:
             board, lenc = copyboard(
-                glyph_data[(readtext, variation)][1], cursor, board, korsi)
+                glyph_data[(substring, variation)][1], cursor, board, korsi)
                 
             # move the cursor by the width of the character to the left
             cursor -= next_width
+        i += len(substring) if len(substring) > 0 else 1
+
 
     # print the remaining of the board
     rendered_ascii_art += print_board(board, cursor, alignment=alignment)
