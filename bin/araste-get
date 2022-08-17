@@ -51,8 +51,8 @@ def get_font_dir():
 def remove_font(fonts_names, font_dir):
     error = False
     for font in fonts_names:
-        if f"{font}.flf" in os.listdir(font_dir):
-            os.remove(f"{font_dir}/{font}.flf")
+        if f"{font}.aff" in os.listdir(font_dir):
+            os.remove(f"{font_dir}/{font}.aff")
             print(f"{font} font removed.")
         else:
             print(f"{font} font not found.")
@@ -65,19 +65,19 @@ def remove_font(fonts_names, font_dir):
 def download_font(fonts_names, font_dir, repository="ekm507/araste-fonts", update=False):
     error = False
     for font in fonts_names:
-        if f"{font}.flf" in os.listdir(font_dir) and not update:
+        if f"{font}.aff" in os.listdir(font_dir) and not update:
             print(f"{font} already exists.")
             continue
-        elif f"{font}.flf" not in os.listdir(font_dir) and update:
+        elif f"{font}.aff" not in os.listdir(font_dir) and update:
             print(f"{font} is not installed")
             error = True
             continue
         else:
             print(f"Downloading Font: {font}")
-            url = f"https://raw.githubusercontent.com/{repository}/main/Fonts/{font}.flf"
+            url = f"https://raw.githubusercontent.com/{repository}/main/Fonts/{font}.aff"
             r = requests.get(url)
             if r.status_code != 404:
-                with open(f"{font_dir}/{font}.flf", "wb") as f:
+                with open(f"{font_dir}/{font}.aff", "wb") as f:
                     f.write(r.content)
                 print(f"{font} Font Downloaded :)")
                 continue
