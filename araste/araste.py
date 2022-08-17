@@ -121,6 +121,31 @@ def find_longest_substring(text:str, glyph_headers:list, variation:int) -> tuple
 
     return longest
 
+def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
+    substrings = []
+    substring = []
+    direction = 1
+    i = 0
+    while i < len(text):
+        glyph = find_longest_substring(text[i:], glyph_data, 0)
+        # print(glyph)
+        glyph_direction = glyph_data[glyph][0]
+
+        if glyph_direction == direction:
+            substring.append(glyph)
+        else:
+            # print(substring, direction)
+            substrings.append( (substring, direction) )
+            direction = glyph_direction
+            substring = []
+        
+        # if len(glyph[0]) > 0:
+        i += len(glyph[0])
+        # else:
+            # i += 1
+
+    return substrings
+
 # convert text into ascii art and print
 def render(
     text: str, 
