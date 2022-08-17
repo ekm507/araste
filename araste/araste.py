@@ -130,14 +130,14 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
         glyph = find_longest_substring(text[i:], glyph_data, 0)
         # print(glyph)
         glyph_direction = glyph_data[glyph][0]
-
+        # print(glyph_direction, direction)
         if glyph_direction == direction:
-            substring.append(glyph)
+            substring.append(glyph[0])
         else:
             # print(substring, direction)
             substrings.append( (substring, direction) )
             direction = glyph_direction
-            substring = [glyph]
+            substring = [glyph[0]]
         
         if len(glyph[0]) > 0:
             i += len(glyph[0])
@@ -164,6 +164,19 @@ def render(
     boardh = font_data['height']
     korsi = font_data['korsi'] - 1
     glyph_data = font_data['glyphs']
+
+    substrings = split_into_directioned_substrings(text, glyph_data)
+    directioned_chars = []
+    for substring in substrings:
+        # if text is right to left
+        if substring[1] == 1:
+            directioned_chars += substring[0]
+        else:
+            directioned_chars += substring[0][::-1]
+    
+    directioned_text = ''.join(directioned_chars)
+
+    text = directioned_text
 
 
     # characters which need character to be separated if it is after them
