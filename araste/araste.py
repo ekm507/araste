@@ -137,7 +137,7 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
             # print(substring, direction)
             substrings.append( (substring, direction) )
             direction = glyph_direction
-            substring = []
+            substring = [glyph]
         
         if len(glyph[0]) > 0:
             i += len(glyph[0])
