@@ -129,7 +129,11 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
     while i < len(text):
         glyph = find_longest_substring(text[i:], glyph_data, 0)
         # print(glyph)
-        glyph_direction = glyph_data[glyph][0]
+        try:
+            glyph_direction = glyph_data[glyph][0]
+        except:
+            i += 1
+            continue
         # print(glyph_direction, direction)
         if glyph_direction == direction:
             substring.append(glyph[0])
