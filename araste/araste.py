@@ -141,8 +141,8 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
         
         # if len(glyph[0]) > 0:
         i += len(glyph[0])
-        # else:
-            # i += 1
+        else:
+            i += 1
 
     return substrings
 
