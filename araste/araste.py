@@ -135,9 +135,9 @@ def render(
 
 
     # characters which need character to be separated if it is after them
-    after_n = list("()«»رذزدژآاءوؤ!؟?\n. ‌،:؛")
+    after_n = list("()«»رذزدژآاءٔوؤ!؟?\n. ‌،:؛")
     # characters which need character to be separated if it is before them
-    before_n = list("()«» ‌،؛:.؟!?\n")
+    before_n = list("()«» ‌،؛:ٔ.؟!?\n")
     # list of characters in persian alphabet
     fa = list('ضصثقفغعهخحجچشسیبلاتنمکگظطزرذدپوؤءژ' + '\u200d')
 
