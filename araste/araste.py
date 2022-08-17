@@ -139,8 +139,8 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
             direction = glyph_direction
             substring = []
         
-        # if len(glyph[0]) > 0:
-        i += len(glyph[0])
+        if len(glyph[0]) > 0:
+            i += len(glyph[0])
         else:
             i += 1
 
