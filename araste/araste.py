@@ -4,7 +4,7 @@ import sys
 from araste.filters import apply_filter
 
 # copy a block into the board
-def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
+def copyboard_glyph(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
     block = [list(line) for line in blockstr.split('\n')]
 
     for widthChars in range(len(block)):
@@ -18,6 +18,23 @@ def copyboard(blockstr: str, cursor: int, board: list, korsi: int) -> tuple:
             board[widthChars][cursor - ksize + j] = block[widthChars][j]
 
     return board, len(block[korsi])
+
+def copyboard_string(substring_data: tuple, glyph_data: dict, cursor: int, board: list, korsi: int, direction: int) -> tuple:
+    # if substring_data[1] == 1:
+    #     sub_direction = 'rtl'
+    # else:
+    #     sub_direction = 'ltr'
+
+    substring = substring_data[0]
+    sub_direction = substring_data[1]    
+
+    if sub_direction == direction:
+        for character in substring:
+            glyph = glyph_data[character][1]
+            board, cursor = copyboard_glyph(
+                glyph, cursor, board, korsi)
+
+
 
 
 def print_line(line: str) -> None:
@@ -272,7 +289,7 @@ def render(
         # print(variation)
         # print(glyph_data[(substring, variation)][1])
         if (substring, variation) in glyph_data:
-            board, lenc = copyboard(
+            board, lenc = copyboard_glyph(
                 glyph_data[(substring, variation)][1], cursor, board, korsi)
                 
             # move the cursor by the width of the character to the left
