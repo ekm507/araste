@@ -60,7 +60,7 @@ def read_font(font:str) -> dict:
     except:
         raise FileNotFoundError
 
-    if aff_headers[0] != 'aff2':
+    if aff_headers[0] != 'aff3':
         sys.exit(1)
 
 
@@ -69,6 +69,7 @@ def read_font(font:str) -> dict:
     korsi = int(aff_headers[2])
     comment_lines = int(aff_headers[3])
     num_chars = int(aff_headers[5])
+    default_direction = int(aff_headers[6])
     for _ in range(comment_lines):
         fontfile.readline()
 
