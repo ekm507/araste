@@ -153,7 +153,7 @@ def split_into_directioned_substrings(text:str, glyph_data: dict) -> list:
             i += 1
             continue
         # print(glyph_direction, direction)
-        if glyph_direction == direction:
+        if glyph_direction in [direction, 0]:
             substring.append(glyph[0])
         else:
             # print(substring, direction)
