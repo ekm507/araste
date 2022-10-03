@@ -103,7 +103,7 @@ def download_font(fonts_names, font_dir, repository="ekm507/araste-fonts", updat
                     print(f"{font} Font Not Found :(")
                     error = True
                     continue
-    if not error:
+    if error:
         exit(1)
     exit(0)
 
