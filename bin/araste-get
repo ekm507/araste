@@ -22,7 +22,7 @@ except:
 
 def main():
     parser = argparse.ArgumentParser(description="Get Fonts For Araste")
-    parser.add_argument("command", type=str, help="install, remove, update")
+    parser.add_argument("command", type=str, help="install, remove, update, list")
     parser.add_argument("Font_name", type=str, help="Font Name, Like: aipara", nargs="*")
     parser.add_argument("-r", "--repository", type=str,
                         help="repo to get fonts from. (github_username/repository)", default="ekm507/araste-fonts")
