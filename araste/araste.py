@@ -84,6 +84,9 @@ def read_font(font:str) -> dict:
 
         persianchars = fontfile.readline().rstrip('\n')
         file_line += 1
+        if len(persianchars) == 0:
+            print(f'there is an Error in Line {file_line}', file=sys.stderr)
+            print(f'character for this glyph is empty.', file=sys.stderr)
 
         
 
