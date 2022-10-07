@@ -44,7 +44,7 @@ def main():
     if args.get_font_list:
         fonts_list = filter(lambda x: x.endswith('aff'), os.listdir(fonts_dir))
         for font_name in fonts_list:
-            print(font_name.rstrip('aff').rstrip('.'))
+            print(os.path.splitext(font_name)[0])
         exit(0)
     
     elif args.get_filter_list:
