@@ -85,8 +85,14 @@ def read_font(font:str) -> dict:
         persianchars = fontfile.readline().rstrip('\n')
         file_line += 1
 
+        
+
         try:
-            char_variation, char_direction = list(map(int,fontfile.readline().rstrip('\n').split(' ')))
+            line = fontfile.readline()
+            if len(line) < 1:
+                print(f'file seems to be broken. trying to read a glyph that does not exist!', file=sys.stderr)
+
+            char_variation, char_direction = list(map(int,line.rstrip('\n').split(' ')))
             file_line += 1
         except ValueError:
             print(f'there is an Error in font file. somewhere near Line {file_line}', file=sys.stderr)
