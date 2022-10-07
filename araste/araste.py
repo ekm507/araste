@@ -91,6 +91,8 @@ def read_font(font:str) -> dict:
             line = fontfile.readline()
             if len(line) < 1:
                 print(f'file seems to be broken. trying to read a glyph that does not exist!', file=sys.stderr)
+                print(f'ignoring from line {file_line}', file=sys.stderr)
+                break
 
             char_variation, char_direction = list(map(int,line.rstrip('\n').split(' ')))
             file_line += 1
