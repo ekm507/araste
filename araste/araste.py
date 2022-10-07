@@ -53,10 +53,12 @@ def read_font(font:str) -> dict:
         font_filename = fonts_dir.rstrip(
             '/') + '/' + font.replace(".aff", "") + ".aff"
 
+    file_line = 0
     # read the font
     try:
         fontfile = open(font_filename)
         aff_headers = fontfile.readline().split(' ')
+        file_line += 1
     except:
         raise FileNotFoundError
 
@@ -73,15 +75,27 @@ def read_font(font:str) -> dict:
     default_direction = int(aff_headers[6])
     for _ in range(comment_lines):
         fontfile.readline()
+        file_line += 1
 
     # get font characters
     # font glyphs is character to block
     font_glyphs = dict()
     for i in range(num_chars):
+
         persianchars = fontfile.readline().rstrip('\n')
-        char_variation, char_direction = list(map(int,fontfile.readline().rstrip('\n').split(' ')))
+        file_line += 1
+
+        try:
+            char_variation, char_direction = list(map(int,fontfile.readline().rstrip('\n').split(' ')))
+            file_line += 1
+        except ValueError:
+            print(f'there is an Error in font file. somewhere near Line {file_line}')
+            sys.exit(1)
+        
         persianasciichars = '\n'.join(
             [fontfile.readline()[:-1] for _ in range(block_height)])
+        
+        file_line += block_height
 
         glyph_key = (persianchars, char_variation)
         glyph_data = (char_direction, persianasciichars)
