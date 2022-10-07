@@ -89,7 +89,7 @@ def read_font(font:str) -> dict:
             char_variation, char_direction = list(map(int,fontfile.readline().rstrip('\n').split(' ')))
             file_line += 1
         except ValueError:
-            print(f'there is an Error in font file. somewhere near Line {file_line}')
+            print(f'there is an Error in font file. somewhere near Line {file_line}', file=sys.stderr)
             sys.exit(1)
         
         persianasciichars = '\n'.join(
