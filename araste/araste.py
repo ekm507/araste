@@ -63,7 +63,7 @@ def read_font(font:str) -> dict:
         raise FileNotFoundError
 
     if aff_headers[0] != 'aff3':
-        print('this is not an aff3 font. or there is an Error in header.')
+        print('this is not an aff3 font. or there is an Error in header.', file=sys.stderr)
         sys.exit(1)
 
 
