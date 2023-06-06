@@ -12,7 +12,7 @@ def message(level, text):
 
 
 try:
-    from araste import araste
+    import araste
 except ImportError:
     message("Error", "Araste is not installed")
     exit(1)

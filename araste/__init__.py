@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-__version__ = "2.1"
+__version__ = "3.0"
 
 import os
 import sys
@@ -45,7 +45,7 @@ def print_line(line: str) -> None:
 def read_font(font:str) -> dict:
 
     # get directory where fonts are stored
-    fonts_dir = __file__.replace("araste.py", "") + "fonts"
+    fonts_dir = __file__.replace("__init__.py", "") + "fonts"
 
     # get font file name
     # if font is a directory:
