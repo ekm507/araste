@@ -248,6 +248,7 @@ def color(color: str, art: str) -> str:
     
     output = ''
     for line in art_lines:
+        line = line.replace(end_color, end_color + rainbow_colors[color])
         output += rainbow_colors[color] + line + end_color + '\n'
     
     return output[:-1]
