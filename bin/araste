@@ -40,7 +40,7 @@ def main():
 
     # default dir where fonts are stored
     # there are 2 possible options. root directory or home directory
-    fonts_dir = araste.__file__.replace("araste.py", "") + "fonts"
+    fonts_dir = araste.__file__.replace("__init__.py", "") + "fonts"
     if args.get_font_list:
         fonts_list = filter(lambda x: x.endswith('aff'), os.listdir(fonts_dir))
         for font_name in fonts_list:
