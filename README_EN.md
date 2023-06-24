@@ -63,6 +63,10 @@ for installing you only need to execute following command.
 ````bash
 pip install araste
 ````
+Note: if you get the following error: externally-managed-environment, you can install araste using pipx (Make sure thet python-pipx is installed on your system.)
+````bash
+pipx install araste
+````
 
 2. or to build it yourself:
 
@@ -85,6 +89,10 @@ to uninstall araste, simply use pip.
 ```bash
 pip uninstall araste
 ```
+Or pipx:
+````bash
+pipx uninstall araste
+````
 
 ## Creating New Fonts!
 
