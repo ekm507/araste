@@ -111,6 +111,10 @@ $ araste --filter-list
 ````bash
 pip install araste
 ````
+توجه: اگر ارور error: externally-managed-environment رو دریافت میکنید، از pipx برای نصب آراسته استفاده کنید (مطمعن باشید بسته python-pipx روی سیستم شما نصب شده باشد):
+````bash
+pipx install araste
+````
 
 یا اگر می‌خواهید خودتان آراسته را بیلد کنید:
 
