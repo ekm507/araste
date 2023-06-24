@@ -140,7 +140,11 @@ araste-get install FontName
 ````bash
 pip uninstall araste
 ````
+یا با استفاده از pipx.
 
+````bash
+pipx uninstall araste
+````
 ## ساخت قلم
 
 برای دریافت قلم‌های بیشتر و هم‌چنین ساخت قلم خودتان از مخزن [araste-fonts](https://github.com/ekm507/araste-fonts) استفاده کنید.  
