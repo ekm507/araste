@@ -61,6 +61,12 @@ an output with the default font (aipara):
 
 araste has various filters for decorating the output. use filters with `-F` switch.
 
+for instance, you can use `rainbow` filter like this:
+
+```bash
+$ araste 'colorful text' -F rainbow
+```
+
 
 
 ## Install and Usage
