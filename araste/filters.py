@@ -1,6 +1,6 @@
 # filters for araste output are here
 import re
-
+from .char_maps import hmirror_character_alternatives
 
 def apply_filter(text: str, filter_name: str) -> str:
 
@@ -193,22 +193,6 @@ def horizontal_mirror(art: str) -> str:
 
     return output[:-1]
 
-hmirror_character_alternatives = {
-    # 2*2 blocks
-    '▐':'▍',
-    '▍':'▐',
-    '▝':'▘',
-    '▘':'▝',
-    '▖':'▗',
-    '▗':'▖',
-    '▛':'▜',
-    '▜':'▛',
-    '▟':'▙',
-    '▙':'▟',
-    '▞':'▚',
-    '▚':'▞',
-
-}
 
 def character_aware_horizontal_mirror(art:str) -> str:
     art_lines = art.split('\n')
