@@ -26,7 +26,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'hrainbow': rainbow_horizontal,
         'box': box,
         'vmirror': vertical_mirror,
-        'hmirror': horizontal_mirror,
+        'hmirror': character_aware_horizontal_mirror,
         'ritalic': italic_right,
         'litalic': italic_left,
         'flip90': flip90,
