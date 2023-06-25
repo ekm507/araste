@@ -3,6 +3,7 @@ import re
 
 hmirror_character_alternatives = {
     '▐':'▍',
+    '▍':'▐',
 }
 
 def apply_filter(text: str, filter_name: str) -> str:
