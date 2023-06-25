@@ -1,6 +1,6 @@
 # filters for araste output are here
 import re
-from .char_maps import hmirror_character_alternatives, vmirror_character_alternatives
+from .char_maps import hmirror_character_alternatives, vmirror_character_alternatives, flip90_character_alternatives
 
 def apply_filter(text: str, filter_name: str) -> str:
 
@@ -241,6 +241,27 @@ def flip90(art: str) -> str:
         output += ''.join(line) + '\n'
 
     return output[:-1]
+
+
+def character_aware_flip90(art: str) -> str:
+    art_lines = art.split('\n')
+
+    # make a 2d matrix of chars
+    art_char_list = [
+        [flip90_character_alternatives[char] if char in flip90_character_alternatives.keys() else char for char in list(line)]
+        for line in art_lines]
+
+    # transpose char matrix
+    char_list_flipped = list(map(list, zip(*art_char_list)))
+
+    # start writing matrix content into output
+    output = ''
+
+    for line in char_list_flipped[::-1]:
+        output += ''.join(line) + '\n'
+
+    return output[:-1]
+
 
 def grow_horizontal(art: str) -> str:
     grow_ratio = 2
