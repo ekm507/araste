@@ -67,6 +67,28 @@ for instance, you can use `rainbow` filter like this:
 $ araste 'colorful text' -F rainbow
 ```
 
+also you can concatenate several filters. to do so, just type their names one by one after `-F` switch.
+
+for instance:
+
+```bash
+$ araste نوشته -F hmirror box
+```
+
+output:
+```
+╔════════════════════════════════════╗
+║              ██                    ║
+║██            ████      ████        ║
+║                              ████  ║
+║██  ████  ██  ██  ██    ██    ████  ║
+║████████  ██████████████████████    ║
+║    ██                              ║
+║      ██                            ║
+║                                    ║
+╚════════════════════════════════════╝
+```
+
 
 
 ## Install and Usage
