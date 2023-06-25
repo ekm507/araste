@@ -56,6 +56,13 @@ an output with the default font (aipara):
                                 ██
 ```
 
+
+### filters
+
+araste has various filters for decorating the output. use filters with `-F` switch.
+
+
+
 ## Install and Usage
 
 for installing you only need to execute following command.
