@@ -89,6 +89,12 @@ output:
 ╚════════════════════════════════════╝
 ```
 
+to get a list of available filters, use `--filter-list` switch:
+
+```bash
+$ araste --filter-list
+```
+
 
 
 ## Install and Usage
