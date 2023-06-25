@@ -13,7 +13,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'hmirror': character_aware_horizontal_mirror,
         'ritalic': italic_right,
         'litalic': italic_left,
-        'flip90': flip90,
+        'flip90': character_aware_flip90,
         'hgrow': grow_horizontal,
         'vgrow': grow_vertical,
         'red': lambda x: color('red', x),
