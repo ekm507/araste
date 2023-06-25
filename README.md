@@ -111,6 +111,10 @@ $ araste --filter-list
 ````bash
 pip install araste
 ````
+توجه: اگر ارور error: externally-managed-environment رو دریافت میکنید، از pipx برای نصب آراسته استفاده کنید (مطمعن باشید بسته python-pipx روی سیستم شما نصب شده باشد):
+````bash
+pipx install araste
+````
 
 یا اگر می‌خواهید خودتان آراسته را بیلد کنید:
 
@@ -136,7 +140,11 @@ araste-get install FontName
 ````bash
 pip uninstall araste
 ````
+یا با استفاده از pipx.
 
+````bash
+pipx uninstall araste
+````
 ## ساخت قلم
 
 برای دریافت قلم‌های بیشتر و هم‌چنین ساخت قلم خودتان از مخزن [araste-fonts](https://github.com/ekm507/araste-fonts) استفاده کنید.  
