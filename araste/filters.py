@@ -1,22 +1,6 @@
 # filters for araste output are here
 import re
 
-hmirror_character_alternatives = {
-    # 2*2 blocks
-    '▐':'▍',
-    '▍':'▐',
-    '▝':'▘',
-    '▘':'▝',
-    '▖':'▗',
-    '▗':'▖',
-    '▛':'▜',
-    '▜':'▛',
-    '▟':'▙',
-    '▙':'▟',
-    '▞':'▚',
-    '▚':'▞',
-
-}
 
 def apply_filter(text: str, filter_name: str) -> str:
 
@@ -25,7 +9,7 @@ def apply_filter(text: str, filter_name: str) -> str:
         'vrainbow': rainbow_vertical,
         'hrainbow': rainbow_horizontal,
         'box': box,
-        'vmirror': vertical_mirror,
+        'vmirror': character_aware_vertical_mirror,
         'hmirror': character_aware_horizontal_mirror,
         'ritalic': italic_right,
         'litalic': italic_left,
@@ -161,6 +145,35 @@ def vertical_mirror(art: str) -> str:
 
     return output
 
+vmirror_character_alternatives = {
+    # 2*2 blocks
+    '▝':'▗',
+    '▗':'▝',
+    '▘':'▖',
+    '▖':'▘',
+    '▛':'▙',
+    '▙':'▛',
+    '▜':'▟',
+    '▟':'▜',
+    '▞':'▚',
+    '▚':'▞',
+    '▀':'▃',
+    '▃':'▀',
+
+}
+
+def character_aware_vertical_mirror(art: str) -> str:
+    art_lines = art.split('\n')
+    art_lines.reverse()
+    output = ''
+    for line in art_lines:
+        output_line = ''.join([vmirror_character_alternatives[char] if char in vmirror_character_alternatives.keys() else char for char in line])
+        output += output_line + '\n'
+    output = output[:-1]
+
+    return output
+
+
 def horizontal_mirror(art: str) -> str:
     art_lines = art.split('\n')
     ansi_escape_regex = r'((\x9B|\x1B\[)[0-?]*[ -\/]*[@-~])'
@@ -180,6 +193,23 @@ def horizontal_mirror(art: str) -> str:
 
     return output[:-1]
 
+hmirror_character_alternatives = {
+    # 2*2 blocks
+    '▐':'▍',
+    '▍':'▐',
+    '▝':'▘',
+    '▘':'▝',
+    '▖':'▗',
+    '▗':'▖',
+    '▛':'▜',
+    '▜':'▛',
+    '▟':'▙',
+    '▙':'▟',
+    '▞':'▚',
+    '▚':'▞',
+
+}
+
 def character_aware_horizontal_mirror(art:str) -> str:
     art_lines = art.split('\n')
     ansi_escape_regex = r'((\x9B|\x1B\[)[0-?]*[ -\/]*[@-~])'
@@ -196,8 +226,8 @@ def character_aware_horizontal_mirror(art:str) -> str:
             else:
                 line = ''
                 for char in code[::-1]:
-                    if char in vmirror_character_alternatives.keys():
-                        reversed_string += vmirror_character_alternatives[char]
+                    if char in hmirror_character_alternatives.keys():
+                        reversed_string += hmirror_character_alternatives[char]
                     else:
                         reversed_string += char
 
