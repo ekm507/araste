@@ -2,6 +2,7 @@
 import re
 
 hmirror_character_alternatives = {
+    # 2*2 blocks
     '▐':'▍',
     '▍':'▐',
     '▝':'▘',
@@ -14,6 +15,7 @@ hmirror_character_alternatives = {
     '▙':'▟',
     '▞':'▚',
     '▚':'▞',
+
 }
 
 def apply_filter(text: str, filter_name: str) -> str:
