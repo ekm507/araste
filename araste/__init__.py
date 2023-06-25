@@ -255,7 +255,13 @@ def render(
     glyphs_width = {}
     for character in glyph_data.keys():
         # max_line_width = max([len(line) for line in font_glyphs[character].split('\n')])
-        max_line_width = len(glyph_data[character][1].split('\n')[korsi])
+
+        try:
+            max_line_width = len(glyph_data[character][1].split('\n')[korsi])
+        except IndexError:
+            print(f'there is an Error in font file. is the Korsi set correctly?', file=sys.stderr)
+            sys.exit(1)
+
         glyphs_width[character] = max_line_width
 
     # generate an empty board
