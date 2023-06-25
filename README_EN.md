@@ -63,7 +63,7 @@ for installing you only need to execute following command.
 ````bash
 pip install araste
 ````
-Note: if you get the following error: externally-managed-environment, you can install araste using pipx (Make sure thet python-pipx is installed on your system.)
+Note: if you get the following error: externally-managed-environment, you can install araste using pipx (Make sure that python-pipx is installed on your system.)
 ````bash
 pipx install araste
 ````
