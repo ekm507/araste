@@ -14,7 +14,7 @@ setuptools.setup(
     author_email="ekm507@gmail.com",
     keywords="figlet",
     url="https://github.com/ekm507/araste",
-    install_requires=["argparse"],
+    install_requires=["requests"],
     classifiers=[],
     packages=["araste"],
     package_dir={"araste": "araste"},
