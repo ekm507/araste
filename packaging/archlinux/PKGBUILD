@@ -2,7 +2,7 @@
 
 pkgname=araste-git
 pkgver=3.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Making ascii-art out of Persian/Arabic text"
 arch=('any')
 url="https://github.com/ekm507/araste/"
