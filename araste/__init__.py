@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-__version__ = "3.2"
+__version__ = "3.2.1"
 
 import os
 import sys
