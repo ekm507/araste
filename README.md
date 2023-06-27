@@ -29,23 +29,23 @@ araste 'نوشته‌ی شما' -f 'اسم یا مسیر قلم'
 araste --list
 ```
 
-درحال‌حاضر چند قلم برای این طراحی شده است که می‌توانید با اسم‌های زیر از آن‌ها استفاده کنید:
+درحال‌حاضر چند قلم پیش فرض برای آراسته طراحی شده است که می‌توانید با اسم‌های زیر از آن‌ها استفاده کنید:
 <details>
   <summary>aipara</summary>
-  ![Aipara](https://github.com/nimafanniasl/araste/assets/76901932/b9812842-bebf-42c6-afcf-a1709af8953c)
+  <img src="https://github.com/nimafanniasl/araste/assets/76901932/b9812842-bebf-42c6-afcf-a1709af8953c">
 </details>
 
 <details>
   <summary>aipara_mini</summary>
-  ![Aipara_mini](https://github.com/nimafanniasl/araste/assets/76901932/920187e9-c033-48a8-8975-92a2dd9bb3e8)
+  <img src="https://github.com/nimafanniasl/araste/assets/76901932/920187e9-c033-48a8-8975-92a2dd9bb3e8">
 </details>
 <details>
   <summary>zivar</summary>
-  ![Zivar](https://github.com/nimafanniasl/araste/assets/76901932/62f15389-beb5-4432-8d8d-c7e9be9d7c9d)
+  <img src="https://github.com/nimafanniasl/araste/assets/76901932/62f15389-beb5-4432-8d8d-c7e9be9d7c9d">
 </details>
 <details>
   <summary>nima</summary>
-  ![Nima](https://github.com/nimafanniasl/araste/assets/76901932/f13c09d6-eebc-44eb-8fd0-68160f56e846)
+  <img src="https://github.com/nimafanniasl/araste/assets/76901932/f13c09d6-eebc-44eb-8fd0-68160f56e846">
 
 </details>
 
