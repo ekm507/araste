@@ -4,7 +4,8 @@
   <h1> آراسته </h1>
   <h2> تبدیل نوشته‌های فارسی به هنر اسکی </h2>
 
-![image](https://user-images.githubusercontent.com/85228025/178108748-21a4bae4-8e2e-46e1-966d-b98cbd56187f.png)
+![Untitled](https://github.com/nimafanniasl/araste/assets/76901932/bcaa04fa-318f-4ee8-9b79-d2cc5cc79bbb)
+
 
 </div>
 
